@@ -1,0 +1,229 @@
+.landing-page {
+  .landing-content {
+    display: flex;
+    height: 90vh;
+    justify-content: space-around;
+    align-items: center;
+    background: #f8f9fa;
+
+    .content-text {
+      padding-bottom: 100px;
+
+      h1 {
+        font-size: 50px;
+        font-weight: bold;
+        background: linear-gradient(270deg, #ff7e5f 10%, #7b93fe 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: -10px;
+      }
+
+      p {
+        font-size: 20px;
+        font-weight: 500;
+        color: #75767a;
+      }
+
+      .get-started-button {
+        margin: 0 150px;
+        padding: 12px 24px;
+        background-color: #ff7e5f;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #7b93fe;
+        }
+
+        & {
+          text-decoration: none;
+          color: white;
+          font-weight: 600;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .content-img {
+    img {
+      width: 800px;
+      height: 500px;
+      margin-top: 150px;
+      object-fit: cover;
+      border-radius: 50px;
+    }
+  }
+
+  .About {
+    height: 45vh;
+    margin-top: 100px;
+    position: relative;
+    h2 {
+      text-align: center;
+      font-size: 50px;
+      background: linear-gradient(270deg, #ff7e5f 10%, #7b93fe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .underline {
+      width: 100px;
+      height: 2px;
+      background: gray;
+      margin: 0 auto;
+      position: absolute;
+      top: 55px;
+      right: 760px;
+    }
+
+    .about-info {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      align-items: center;
+      justify-content: space-evenly;
+      transition: box-shadow 83ms;
+    }
+
+    .about-text {
+      margin: 0 auto;
+      width: 400px;
+      border-radius: 8px;
+      padding-left: 14px;
+      background: #7b93fe;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 83ms;
+      font-size: 20px;
+
+      .about-img {
+        width: 50px;
+        height: 50px;
+        margin: 15px 0px 0px 160px;
+        background: #ffffff;
+        border-radius: 50%;
+      }
+
+      p {
+        width: 400px;
+        color: white;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .products {
+    height: 90vh;
+    margin-top: 100px;
+    position: relative;
+    background: #f8f9fa;
+
+    h2 {
+      text-align: center;
+      font-size: 50px;
+      padding-top: 50px;
+      background: linear-gradient(270deg, #ff7e5f 10%, #7b93fe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .underline {
+      width: 100px;
+      height: 3px;
+      background: gray;
+      margin: 0 auto;
+      position: absolute;
+      top: 105px;
+      right: 760px;
+    }
+
+    .product-info {
+      display: flex;
+      align-items: center;
+      transition: box-shadow 83ms;
+
+      img {
+        width: 800px;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 50px;
+        margin-left: 100px;
+      }
+      .product-text {
+        margin: 0 auto;
+        border-radius: 8px;
+        margin-right: 100px;
+
+        p {
+          width: 500px;
+          color: #3a3a3b;
+          font-size: 20px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    margin: 80px 170px;
+
+    .content-title {
+      position: relative;
+
+      h1 {
+        padding: 0px 30px;
+        font-size: 50px;
+        font-weight: 600;
+        background: linear-gradient(270deg, #ff7e5f 10%, #7b93fe 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    .contact-session {
+      display: flex;
+      gap: 150px;
+
+      .content-left {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        h1 {
+          font-size: 80px;
+          font-weight: 700;
+          background: linear-gradient(270deg, #df8908 80%, #b415ff 100%);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        p {
+          max-width: 550px;
+          color: #3a3a3b;
+          font-size: 20px;
+          line-height: 35px;
+        }
+      }
+    }
+
+    .content-details {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      color: #d8d8d8;
+      font-size: 22px;
+
+      .content-detail {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+    }
+  }
+}

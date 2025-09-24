@@ -1,0 +1,125 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+import HomeImage from "../../assets/img-home.jpg";
+import productImage from "../../assets/product-main-2.jpg";
+import Header from "../../components/header-component/header.component";
+import SocialIcon from "../../components/social-icon-component/social-icon.component";
+import ContactRight from "../../components/contact-right/contact-right.component";
+import Footer from "../../components/footer-component/footer.component";
+
+import IconGem from "../../assets/geml.svg";
+import IconCart from "../../assets/product.svg";
+import IconDelivery from "../../assets/truckl.svg";
+import mail from "../../assets/mail_icon.svg";
+import call from "../../assets/call_icon.svg";
+import location from "../../assets/location_icon.svg";
+
+import "./landing-page.style.scss";
+
+const contentDetails = [
+  { img: mail, info: "adenijipeter2018@gmail.com" },
+  { img: call, info: "+2348148915457, +2349036550687" },
+  { img: location, info: "Anambra, Anambra state, Nigeria" },
+];
+
+const LandingPage = () => {
+  return (
+    <div className="landing-page">
+      <Header />
+      <div className="landing-content">
+        <div className="content-text">
+          <h1>Welcome to EliteCart</h1>
+          <p>Your one-stop solution for all your shopping needs.</p>
+          <Link to="/signup" className="get-started-button">
+            Get Started
+          </Link>
+        </div>
+        <div className="content-img">
+          <img src={HomeImage} alt="Shopping" />
+        </div>
+      </div>
+      <section className="About">
+        <h2>About</h2>
+        <div className="underline"></div>
+        <div className="about-info">
+          <div className="about-text">
+            <img src={IconGem} alt="Gem Icon" className="about-img" />
+            <p>
+              EliteCart is an innovative e-commerce platform designed to provide
+              a seamless shopping experience for customers worldwide.
+            </p>
+          </div>
+          <div className="about-text">
+            <img src={IconCart} alt="Product Icon" className="about-img" />
+            <p>
+              Our mission is to offer a wide range of products at competitive
+              prices while ensuring exceptional customer service.
+            </p>
+          </div>
+          <div className="about-text">
+            <img src={IconDelivery} alt="Delivery Icon" className="about-img" />
+            <p>
+              We are committed to fast and reliable delivery, ensuring your
+              orders arrive on time without any forms of delay.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section className="products">
+        <h2>Products</h2>
+        <div className="underline"></div>
+        <div className="product-info">
+          <div className="product-img">
+            <img src={productImage} alt="" className="product-image" />
+          </div>
+          <div className="product-text">
+            <p>
+              EliteCart store is where fashion meets comfort! Discover a curated
+              collection of trendy clothing designed to fit every style and
+              occasion. From casual everyday wear to elegant outfits, we bring
+              you quality fabrics, modern designs, and affordable prices all in
+              one place.
+            </p>
+            <p>
+              Whether you're looking for the latest fashion trends or timeless
+              classics, EliteCart has something for everyone. Shop now and
+              elevate your wardrobe with our exclusive collections!
+            </p>
+          </div>
+        </div>
+      </section>
+      <section className="contact">
+        <div id="contact" className="content">
+          <div className="content-title">
+            <h1>Get in touch</h1>
+          </div>
+          <div className="contact-session">
+            <div className="content-left">
+              <h1>Let's talk</h1>
+              <p>
+                At EliteCart, we're available to take on an inquiry, so feel
+                free to get in touch
+              </p>
+              <div className="content-details">
+                {contentDetails.map((detail, index) => {
+                  return (
+                    <div className="content-detail" key={index}>
+                      <img src={detail.img} alt="" />
+                      <p>{detail.info}</p>
+                    </div>
+                  );
+                })}
+                <SocialIcon />
+              </div>
+            </div>
+            <ContactRight />
+          </div>
+        </div>
+      </section>
+      <Footer />
+    </div>
+  );
+};
+
+export default LandingPage;

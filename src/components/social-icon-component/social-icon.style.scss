@@ -1,0 +1,11 @@
+.social {
+  margin-left: 4rem;
+
+  a {
+    padding: 0 1rem;
+    color: rgb(248, 53, 53);
+    &:hover {
+      color: gray;
+    }
+  }
+}
