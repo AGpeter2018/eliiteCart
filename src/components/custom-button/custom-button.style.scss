@@ -1,11 +1,7 @@
 .submitBtn {
   margin-top: 20px;
-  margin-left: 10px;
   padding: 10px 0;
-  font-size: 25px;
   background: gray;
-  color: white;
-  cursor: pointer;
   border-radius: 10px;
   transition: all 0.3s ease;
 
@@ -20,18 +16,20 @@
     outline: none;
     margin: 0 30px;
     font-weight: 400;
+    color: white;
+    font-size: 24px;
     cursor: pointer;
   }
 
   .submit {
-    margin-left: 80px;
+    margin-left: 120px;
   }
 
   .style {
-    margin-right: -15px;
+    margin-left: 70px;
   }
 
   .moving {
-    margin-left: 130px;
+    margin-left: 160px;
   }
 }
