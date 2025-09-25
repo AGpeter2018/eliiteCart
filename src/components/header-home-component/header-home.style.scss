@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+
+  .logo {
+    display: block;
+    height: 40px;
+    width: 30px;
+  }
+  .options {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .option {
+      padding: 0px 15px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 16px;
+
+      &:hover {
+        color: grey;
+      }
+    }
+  }
+}

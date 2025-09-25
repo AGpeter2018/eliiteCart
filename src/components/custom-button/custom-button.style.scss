@@ -1,0 +1,37 @@
+.submitBtn {
+  margin-top: 20px;
+  margin-left: 10px;
+  padding: 10px 0;
+  font-size: 25px;
+  background: gray;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: gainsboro;
+    color: black;
+  }
+
+  button {
+    border: none;
+    background: none;
+    outline: none;
+    margin: 0 30px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .submit {
+    margin-left: 80px;
+  }
+
+  .style {
+    margin-right: -15px;
+  }
+
+  .moving {
+    margin-left: 130px;
+  }
+}
