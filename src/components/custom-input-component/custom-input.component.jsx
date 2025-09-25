@@ -1,9 +1,25 @@
 import React from "react";
 
-const CustomInput = ({}) => {
+import "./custom-input.style.scss";
+
+const CustomInput = ({ handleChange, label, lengthy, ...otherProps }) => {
   return (
-    <div className="formInput">
-      <input type="text" />
+    <div className="group">
+      <input
+        className={`${lengthy ? "long" : ""}form-input`}
+        onChange={handleChange}
+        {...otherProps}
+      />
+
+      {label ? (
+        <label
+          className={`${
+            otherProps.value.length ? "shrink" : ""
+          }  form-input-label`}
+        >
+          {label}
+        </label>
+      ) : null}
     </div>
   );
 };

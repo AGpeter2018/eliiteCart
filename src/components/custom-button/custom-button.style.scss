@@ -18,13 +18,20 @@
     border: none;
     background: none;
     outline: none;
-    // padding: 10px 80px;
-    margin: 0 50px;
+    margin: 0 30px;
     font-weight: 400;
     cursor: pointer;
   }
 
   .submit {
-    margin-left: 85px;
+    margin-left: 80px;
+  }
+
+  .style {
+    margin-right: -15px;
+  }
+
+  .moving {
+    margin-left: 130px;
   }
 }

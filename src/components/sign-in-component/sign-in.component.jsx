@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import LogoCrown from "../../assets/crown-solid-full.svg";
 import CustomButton from "../custom-button/custom-button.component";
+import CustomInput from "../custom-input-component/custom-input.component";
 
 import "./sign-in.style.scss";
 
@@ -38,22 +39,22 @@ class SignIn extends React.Component {
         <div className="form-container">
           <form action="" className="sign-in-form" onSubmit={this.handleSubmit}>
             <div className="inputA">
-              <label htmlFor="email">Email</label>
-              <input
+              <CustomInput
                 type="text"
                 name="email"
                 value={email}
-                onChange={this.handleChange}
+                label="Email"
+                handleChange={this.handleChange}
                 required
               />
             </div>
             <div className="inputB">
-              <label htmlFor="password">Password</label>
-              <input
+              <CustomInput
                 type="password"
                 name="password"
                 value={password}
-                onChange={this.handleChange}
+                label="Password"
+                handleChange={this.handleChange}
                 required
               />
             </div>
