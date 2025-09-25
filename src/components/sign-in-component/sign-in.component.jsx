@@ -1,0 +1,74 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+import LogoCrown from "../../assets/crown-solid-full.svg";
+import CustomButton from "../custom-button/custom-button.component";
+
+import "./sign-in.style.scss";
+
+class SignIn extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      password: "",
+    };
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.setState({ email: "", password: "" });
+  };
+
+  handleChange = (event) => {
+    const { value, name } = event.target;
+    this.setState({ [name]: value });
+  };
+
+  render() {
+    const { email, password } = this.state;
+    return (
+      <div className="sign-container">
+        <img src={LogoCrown} alt="" className="logo" />
+        <div className="greeting">
+          <h1>Welcome Back</h1>
+        </div>
+        <h2>I already have account</h2>
+        <h3>Sign in with email and password</h3>
+        <div className="form-container">
+          <form action="" className="sign-in-form" onSubmit={this.handleSubmit}>
+            <div className="inputA">
+              <label htmlFor="email">Email</label>
+              <input
+                type="text"
+                name="email"
+                value={email}
+                onChange={this.handleChange}
+                required
+              />
+            </div>
+            <div className="inputB">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                value={password}
+                onChange={this.handleChange}
+                required
+              />
+            </div>
+            <CustomButton type="submit">Sign In</CustomButton>
+            <CustomButton type="submit" isGoogle>
+              Sign with Google
+            </CustomButton>
+          </form>
+          <div className="link">
+            Not having an account yet ? <Link to="/signUp">sign up</Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default SignIn;
