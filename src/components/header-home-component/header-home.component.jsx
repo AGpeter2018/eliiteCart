@@ -9,7 +9,8 @@ import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user-selector";
 
 import LogoCrown from "../../assets/crown-solid-full.svg";
-import Cart from "../../assets/122 shopping-bag.svg";
+import CartIcon from "../../assets/122 shopping-bag.svg";
+import DropDown from "../drop-down-component/drop-down.component";
 
 import "./header-home.style.scss";
 
@@ -41,8 +42,10 @@ const HeaderHome = () => {
               SignIn
             </Link>
           )}
+          <img src={CartIcon} alt="" className="cart-icon" />
         </div>
       </div>
+      <DropDown />
     </div>
   );
 };
