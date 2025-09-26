@@ -5,13 +5,18 @@ import { auth } from "../../firebase/firebase-utils";
 
 import { useSelector, useDispatch } from "react-redux";
 import { setUserAuth } from "../../redux/user/user-action";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "../../redux/user/user-selector";
 
 import LogoCrown from "../../assets/crown-solid-full.svg";
 
 import "./header-home.style.scss";
 
 const HeaderHome = () => {
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const structuredSelector = createStructuredSelector({
+    currentUser: selectCurrentUser,
+  });
+  const { currentUser } = useSelector(structuredSelector);
   const dispatch = useDispatch();
   return (
     <div className="header">
