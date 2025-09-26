@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { auth } from "../../firebase/firebase-utils";
+import { dropDownAction } from "../../redux/cart/cart-action";
 
 import { useSelector, useDispatch } from "react-redux";
 import { setUserAuth } from "../../redux/user/user-action";
@@ -15,6 +15,7 @@ import DropDown from "../drop-down-component/drop-down.component";
 import "./header-home.style.scss";
 
 const HeaderHome = () => {
+  const hidden = useSelector((state) => state.hidden.hidden);
   const structuredSelector = createStructuredSelector({
     currentUser: selectCurrentUser,
   });
@@ -42,10 +43,15 @@ const HeaderHome = () => {
               SignIn
             </Link>
           )}
-          <img src={CartIcon} alt="" className="cart-icon" />
+          <img
+            src={CartIcon}
+            alt=""
+            className="cart-icon"
+            onClick={() => dispatch(dropDownAction())}
+          />
         </div>
       </div>
-      <DropDown />
+      {hidden ? null : <DropDown />}
     </div>
   );
 };
