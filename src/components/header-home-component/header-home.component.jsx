@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 
 import { auth } from "../../firebase/firebase-utils";
 
+import { useSelector, useDispatch } from "react-redux";
+import { setUserAuth } from "../../redux/user/user-action";
+
 import LogoCrown from "../../assets/crown-solid-full.svg";
 
 import "./header-home.style.scss";
 
-const HeaderHome = ({ currentUser }) => {
+const HeaderHome = () => {
+  const currentUser = useSelector((state) => state.user.currentUser);
+  const dispatch = useDispatch();
   return (
     <div className="header">
       <Link to="/" className="logo">
@@ -22,7 +27,7 @@ const HeaderHome = ({ currentUser }) => {
             Contact
           </Link>
           {currentUser ? (
-            <div className="option" onClick={() => auth.signOut()}>
+            <div className="option" onClick={() => dispatch(setUserAuth())}>
               SignOut
             </div>
           ) : (
