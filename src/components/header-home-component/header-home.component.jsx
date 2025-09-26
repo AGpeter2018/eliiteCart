@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setUserAuth } from "../../redux/user/user-action";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user-selector";
+import { selectHidden } from "../../redux/cart/cart-selector";
 
 import LogoCrown from "../../assets/crown-solid-full.svg";
 import CartIcon from "../../assets/122 shopping-bag.svg";
@@ -15,11 +16,11 @@ import DropDown from "../drop-down-component/drop-down.component";
 import "./header-home.style.scss";
 
 const HeaderHome = () => {
-  const hidden = useSelector((state) => state.hidden.hidden);
   const structuredSelector = createStructuredSelector({
     currentUser: selectCurrentUser,
+    hidden: selectHidden,
   });
-  const { currentUser } = useSelector(structuredSelector);
+  const { currentUser, hidden } = useSelector(structuredSelector);
   const dispatch = useDispatch();
   return (
     <div className="header">
