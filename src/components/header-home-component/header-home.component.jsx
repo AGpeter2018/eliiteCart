@@ -1,23 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { auth } from "../../firebase/firebase-utils";
+import { dropDownAction } from "../../redux/cart/cart-action";
 
 import { useSelector, useDispatch } from "react-redux";
 import { setUserAuth } from "../../redux/user/user-action";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user-selector";
+import { selectHidden } from "../../redux/cart/cart-selector";
 
 import LogoCrown from "../../assets/crown-solid-full.svg";
-import Cart from "../../assets/122 shopping-bag.svg";
+import CartIcon from "../../assets/122 shopping-bag.svg";
+import DropDown from "../drop-down-component/drop-down.component";
 
 import "./header-home.style.scss";
 
 const HeaderHome = () => {
   const structuredSelector = createStructuredSelector({
     currentUser: selectCurrentUser,
+    hidden: selectHidden,
   });
-  const { currentUser } = useSelector(structuredSelector);
+  const { currentUser, hidden } = useSelector(structuredSelector);
   const dispatch = useDispatch();
   return (
     <div className="header">
@@ -41,8 +44,15 @@ const HeaderHome = () => {
               SignIn
             </Link>
           )}
+          <img
+            src={CartIcon}
+            alt=""
+            className="cart-icon"
+            onClick={() => dispatch(dropDownAction())}
+          />
         </div>
       </div>
+      {hidden ? null : <DropDown />}
     </div>
   );
 };
