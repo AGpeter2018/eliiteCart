@@ -3,6 +3,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import { getUserAuth } from "./redux/user/user-action";
+import { selectCurrentUser } from "./redux/user/user-selector";
+import { createStructuredSelector } from "reselect";
 
 import LandingPage from "./pages/landing-page/landing-page.component";
 import Homepage from "./pages/homepage/homepage.component";
@@ -13,7 +15,10 @@ import SignUp from "./components/sign-up-component/sign-up.component";
 
 import "./App.css";
 const App = () => {
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const structuredSelector = createStructuredSelector({
+    currentUser: selectCurrentUser,
+  });
+  const { currentUser } = useSelector(structuredSelector);
   const dispatch = useDispatch();
   useEffect(() => {
     const unSubscribeFromAuth = dispatch(getUserAuth());
