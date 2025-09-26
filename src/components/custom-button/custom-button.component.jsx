@@ -2,7 +2,7 @@ import React from "react";
 
 import "./custom-button.style.scss";
 
-const CustomButton = ({ children, otherProps, isGoogle, signUp }) => {
+const CustomButton = ({ children, isGoogle, signUp, ...otherProps }) => {
   return (
     <div className="submitBtn">
       <button
@@ -10,8 +10,9 @@ const CustomButton = ({ children, otherProps, isGoogle, signUp }) => {
           signUp ? "moving" : ""
         } submit`}
         {...otherProps}
-      ></button>
-      {children}
+      >
+        {children}
+      </button>
     </div>
   );
 };

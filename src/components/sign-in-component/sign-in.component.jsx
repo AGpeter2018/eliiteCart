@@ -5,6 +5,8 @@ import LogoCrown from "../../assets/crown-solid-full.svg";
 import CustomButton from "../custom-button/custom-button.component";
 import CustomInput from "../custom-input-component/custom-input.component";
 
+import { auth, signInWithGoogle } from "../../firebase/firebase-utils";
+
 import "./sign-in.style.scss";
 
 class SignIn extends React.Component {
@@ -16,12 +18,19 @@ class SignIn extends React.Component {
     };
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-    this.setState({ email: "", password: "" });
+    const { email, password } = this.state;
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({ email: "", password: "" });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   handleChange = (event) => {
+    event.preventDefault();
     const { value, name } = event.target;
     this.setState({ [name]: value });
   };
@@ -59,7 +68,7 @@ class SignIn extends React.Component {
               />
             </div>
             <CustomButton type="submit">Sign In</CustomButton>
-            <CustomButton type="submit" isGoogle>
+            <CustomButton type="submit" isGoogle onClick={signInWithGoogle}>
               Sign with Google
             </CustomButton>
           </form>
