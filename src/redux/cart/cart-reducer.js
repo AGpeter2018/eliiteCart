@@ -1,5 +1,9 @@
-import { dropDownActionType, addCartItemType } from "./cart-action-type";
-import { addItems } from "./cartItem.utility";
+import {
+  dropDownActionType,
+  addCartItemType,
+  removeQuantityActionType,
+} from "./cart-action-type";
+import { addItems, cartRemove } from "./cartItem.utility";
 
 const INITIAL_STATE = {
   hidden: true,
@@ -17,6 +21,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cartItems: addItems(state.cartItems, action.payload),
+      };
+    case removeQuantityActionType.CART_QUANTITY_REMOVED:
+      return {
+        ...state,
+        cartItems: cartRemove(state.cartItems, action.payload),
       };
     default:
       return state;
