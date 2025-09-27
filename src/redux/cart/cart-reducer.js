@@ -2,6 +2,7 @@ import {
   dropDownActionType,
   addCartItemType,
   removeQuantityActionType,
+  deleteCartItemType,
 } from "./cart-action-type";
 import { addItems, cartRemove } from "./cartItem.utility";
 
@@ -26,6 +27,13 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cartItems: cartRemove(state.cartItems, action.payload),
+      };
+    case deleteCartItemType.DELETE_CART_ITEM:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(
+          (cartItem) => cartItem.id !== action.payload.id
+        ),
       };
     default:
       return state;

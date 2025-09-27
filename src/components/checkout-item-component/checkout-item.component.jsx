@@ -3,6 +3,7 @@ import React from "react";
 import {
   addCartItemAction,
   removeQuantityAction,
+  deleteCartItem,
 } from "../../redux/cart/cart-action";
 import { useDispatch } from "react-redux";
 
@@ -34,7 +35,12 @@ const Checkout = ({ cartItem }) => {
         </div>
       </span>
       <span className="price">{price}</span>
-      <div className="remove-btn">&#10006;</div>
+      <div
+        className="remove-btn"
+        onClick={() => dispatch(deleteCartItem(cartItem))}
+      >
+        &#10006;
+      </div>
     </div>
   );
 };
