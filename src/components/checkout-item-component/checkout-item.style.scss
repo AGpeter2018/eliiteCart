@@ -24,6 +24,11 @@
     width: 23%;
   }
 
+  .quantity,
+  .price {
+    margin-left: 17px;
+  }
+
   .quantity {
     display: flex;
 
@@ -36,8 +41,9 @@
     }
   }
 
-  .remove-button {
+  .remove-btn {
     padding-left: 12px;
+    padding-right: 10px;
     cursor: pointer;
   }
 }

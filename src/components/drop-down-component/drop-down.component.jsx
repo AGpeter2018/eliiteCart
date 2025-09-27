@@ -1,7 +1,8 @@
 import React from "react";
 
 import { selectCart } from "../../redux/cart/cart-selector";
-import { useSelector } from "react-redux";
+import { dropDownAction } from "../../redux/cart/cart-action";
+import { useSelector, useDispatch } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +12,7 @@ import CartItem from "../cartItem-component/cartitem.component";
 import "./drop-down.style.scss";
 
 const DropDown = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const structuredSelector = createStructuredSelector({
     cart: selectCart,
@@ -19,11 +21,20 @@ const DropDown = () => {
   return (
     <div className="cart-drop-down">
       <div className="cart-items">
-        {cart.map((item) => {
-          return <CartItem key={item.id} item={item} />;
-        })}
+        {cart.length ? (
+          cart.map((item) => {
+            return <CartItem key={item.id} item={item} />;
+          })
+        ) : (
+          <p className="cart-text">Your cart is empty</p>
+        )}
       </div>
-      <CustomButton onClick={() => navigate("/checkout")}>
+      <CustomButton
+        onClick={() => {
+          dispatch(dropDownAction());
+          navigate("/checkout");
+        }}
+      >
         Checkout your items
       </CustomButton>
       ;
