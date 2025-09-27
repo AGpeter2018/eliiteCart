@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { dropDownAction } from "../../redux/cart/cart-action";
-
 import { useSelector, useDispatch } from "react-redux";
 import { setUserAuth } from "../../redux/user/user-action";
 import { createStructuredSelector } from "reselect";
@@ -11,6 +9,7 @@ import { selectHidden } from "../../redux/cart/cart-selector";
 
 import LogoCrown from "../../assets/crown-solid-full.svg";
 import CartIcon from "../../assets/122 shopping-bag.svg";
+import ShoppingIcon from "../shopping-icon-component/shopping-icon.component";
 import DropDown from "../drop-down-component/drop-down.component";
 
 import "./header-home.style.scss";
@@ -44,12 +43,13 @@ const HeaderHome = () => {
               SignIn
             </Link>
           )}
-          <img
+          {/* <img
             src={CartIcon}
             alt=""
             className="cart-icon"
             onClick={() => dispatch(dropDownAction())}
-          />
+          /> */}
+          <ShoppingIcon />
         </div>
       </div>
       {hidden ? null : <DropDown />}

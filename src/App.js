@@ -12,6 +12,7 @@ import Shop from "./components/shop-component/shop.component";
 import SignInSignUp from "./pages/sign-in-sign-up/sign-in-sign-up.component";
 import HeaderHome from "./components/header-home-component/header-home.component";
 import SignUp from "./components/sign-up-component/sign-up.component";
+import CheckoutPage from "./pages/checkout-page/checkout-page.component";
 
 import "./App.css";
 const App = () => {
@@ -52,6 +53,7 @@ const App = () => {
           path="/signUp"
           element={currentUser ? <Navigate to="/homepage" /> : <SignUp />}
         />
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
     </div>
   );
