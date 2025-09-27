@@ -3,6 +3,7 @@ import React from "react";
 import { selectCart } from "../../redux/cart/cart-selector";
 import { useSelector } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { useNavigate } from "react-router-dom";
 
 import CustomButton from "../custom-button/custom-button.component";
 import CartItem from "../cartItem-component/cartitem.component";
@@ -10,6 +11,7 @@ import CartItem from "../cartItem-component/cartitem.component";
 import "./drop-down.style.scss";
 
 const DropDown = () => {
+  const navigate = useNavigate();
   const structuredSelector = createStructuredSelector({
     cart: selectCart,
   });
@@ -21,7 +23,10 @@ const DropDown = () => {
           return <CartItem key={item.id} item={item} />;
         })}
       </div>
-      <CustomButton>Checkout your items</CustomButton>;
+      <CustomButton onClick={() => navigate("/checkout")}>
+        Checkout your items
+      </CustomButton>
+      ;
     </div>
   );
 };
