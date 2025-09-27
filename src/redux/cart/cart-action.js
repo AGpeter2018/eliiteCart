@@ -1,9 +1,8 @@
-
 import {
   dropDownActionType,
   addCartItemType,
   removeQuantityActionType,
-  deleteCartItemType
+  deleteCartItemType,
 } from "./cart-action-type";
 
 export const dropDownAction = () => ({

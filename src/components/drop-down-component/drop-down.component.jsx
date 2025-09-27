@@ -21,9 +21,13 @@ const DropDown = () => {
   return (
     <div className="cart-drop-down">
       <div className="cart-items">
-        {cart.map((item) => {
-          return <CartItem key={item.id} item={item} />;
-        })}
+        {cart.length ? (
+          cart.map((item) => {
+            return <CartItem key={item.id} item={item} />;
+          })
+        ) : (
+          <p className="cart-text">Your cart is empty</p>
+        )}
       </div>
       <CustomButton
         onClick={() => {

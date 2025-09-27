@@ -16,6 +16,10 @@
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
+
+    .cart-text {
+      text-align: center;
+    }
   }
 
   button {
