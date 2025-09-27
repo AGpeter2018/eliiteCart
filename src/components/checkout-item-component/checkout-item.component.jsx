@@ -1,6 +1,9 @@
 import React from "react";
 
-import { addCartItemAction } from "../../redux/cart/cart-action";
+import {
+  addCartItemAction,
+  removeQuantityAction,
+} from "../../redux/cart/cart-action";
 import { useDispatch } from "react-redux";
 
 import "./checkout-item.style.scss";
@@ -16,7 +19,12 @@ const Checkout = ({ cartItem }) => {
       </div>
       <span className="name">{name}</span>
       <span className="quantity">
-        <div className="arrow">&#10094;</div>
+        <div
+          className="arrow"
+          onClick={() => dispatch(removeQuantityAction(cartItem))}
+        >
+          &#10094;
+        </div>
         <span className="value">{quantity}</span>
         <div
           className="arrow"
