@@ -28,7 +28,7 @@ const HeaderHome = () => {
       </Link>
       <div className="option-container">
         <div className="options">
-          <Link to="/shop" className="option">
+          <Link to="/shopPage" className="option">
             Shop
           </Link>
           <Link to="/shop" className="option">
