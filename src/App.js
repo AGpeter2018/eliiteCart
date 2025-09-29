@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -38,20 +38,20 @@ const App = () => {
       <HeaderHome />
       <Routes>
         <Route
-          path="/homepage"
+          path="/shopPage"
           element={currentUser ? <Homepage /> : <Navigate to="/signIn" />}
         />
         <Route
-          path="/shop"
+          path="/shop/*"
           element={currentUser ? <Shop /> : <Navigate to="/signIn" />}
         />
         <Route
           path="/signIn"
-          element={currentUser ? <Navigate to="/homepage" /> : <SignInSignUp />}
+          element={currentUser ? <Navigate to="/shopPage" /> : <SignInSignUp />}
         />
         <Route
           path="/signUp"
-          element={currentUser ? <Navigate to="/homepage" /> : <SignUp />}
+          element={currentUser ? <Navigate to="/shopPage" /> : <SignUp />}
         />
         <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
