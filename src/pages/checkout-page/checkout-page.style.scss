@@ -1,3 +1,17 @@
+// Make the warning message prominent
+.warning {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin: 24px 0 16px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.08);
+  letter-spacing: 0.02em;
+}
 .checkout-page {
   width: 55%;
   min-height: 90vh;

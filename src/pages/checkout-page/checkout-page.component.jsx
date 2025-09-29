@@ -6,6 +6,8 @@ import { createStructuredSelector } from "reselect";
 
 import Checkout from "../../components/checkout-item-component/checkout-item.component";
 
+import StripeElementsWrapper from "../../components/stripe-elements/StripeElementsWrapper";
+
 import "./checkout-page.style.scss";
 
 const CheckoutPage = () => {
@@ -35,12 +37,17 @@ const CheckoutPage = () => {
         </div>
       </div>
       {cartItems.map((cartItem) => {
-        // console.log(cartItem);
         return <Checkout key={cartItem.id} cartItem={cartItem} />;
       })}
       <div className="total">
         <span>Total: ${total}</span>
       </div>
+      <div className="warning">
+        *Pls use the following test credit card for the paymemt*
+        <br />
+        4242 4242 4242 4242 - Exp: 01/20 - CVV:123
+      </div>
+      <StripeElementsWrapper amount={total} />
     </div>
   );
 };
