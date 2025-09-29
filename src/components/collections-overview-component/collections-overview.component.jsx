@@ -1,6 +1,6 @@
 import React from "react";
 
-import { selectCollection } from "../../redux/collection/colloction-selector";
+import { selectCollectionForPreview } from "../../redux/collection/colloction-selector";
 import { useSelector } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -10,7 +10,7 @@ import "./collections-overview.component.style.scss";
 
 const CollectionOverview = () => {
   const structuredSelector = createStructuredSelector({
-    collections: selectCollection,
+    collections: selectCollectionForPreview,
   });
   const { collections } = useSelector(structuredSelector);
   console.log(collections);
