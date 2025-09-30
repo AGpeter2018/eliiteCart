@@ -15,8 +15,10 @@ import SignInSignUp from "./pages/sign-in-sign-up/sign-in-sign-up.component";
 import HeaderHome from "./components/header-home-component/header-home.component";
 import SignUp from "./components/sign-up-component/sign-up.component";
 import CheckoutPage from "./pages/checkout-page/checkout-page.component";
+import HistoryPage from "./components/history-component/history.component";
 
 import "./App.css";
+
 const App = () => {
   const structuredSelector = createStructuredSelector({
     currentUser: selectCurrentUser,
@@ -57,6 +59,7 @@ const App = () => {
           element={currentUser ? <Navigate to="/shopPage" /> : <SignUp />}
         />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/history" element={<HistoryPage />} />
       </Routes>
     </div>
   );

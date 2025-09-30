@@ -37,7 +37,6 @@ const DropDown = () => {
       >
         Checkout your items
       </CustomButton>
-      ;
     </div>
   );
 };
