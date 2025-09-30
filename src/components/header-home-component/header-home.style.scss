@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
+  background-color: white;
 
   .logo {
     display: block;
@@ -12,8 +13,9 @@
   .options {
     width: 50%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: left;
     align-items: center;
+    margin-bottom: -10px;
 
     .option {
       padding: 0px 15px;
@@ -33,4 +35,24 @@
       height: 35px;
     }
   }
+}
+
+#light.header {
+  background-color: #fff;
+  color: #222;
+}
+
+#dark.header {
+  background-color: #181818;
+  color: #fff;
+}
+
+#dark .option {
+  color: #fff;
+}
+#dark .option:hover {
+  color: #bbb;
+}
+#dark .logo-img {
+  filter: brightness(0) invert(1);
 }

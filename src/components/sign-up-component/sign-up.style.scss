@@ -1,3 +1,26 @@
+#dark .signUp-container .logo {
+  filter: brightness(0) invert(1);
+}
+#light .signUp-container {
+  background: #f8f9fa;
+  color: #222;
+}
+
+#dark .signUp-container {
+  background: #232323;
+  color: #fff;
+}
+
+#dark .signUp-container .title,
+#dark .signUp-container h3 {
+  color: #ffe082;
+}
+
+#dark .signUp-container input {
+  background: #232323;
+  color: #fff;
+  border-bottom: 1px solid #888;
+}
 .signUp-container {
   display: flex;
   flex-direction: column;

@@ -1,16 +1,25 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+import { selectThemeColor } from "../../redux/theme/theme-selector";
+import { useSelector, useDispatch } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { themeChangeAction } from "../../redux/theme/theme-action";
+
 import "./menu-item.style.scss";
 
 const MenuItem = ({ imageUrl, title, linkUrl, size }) => {
+    const structureSelector = createStructuredSelector({
+    theme: selectThemeColor,
+  });
+  const { theme } = useSelector(structureSelector);
   const navigate = useNavigate();
   const handleClick = () => {
     console.log("Navigating to:", linkUrl);
     navigate(linkUrl);
   };
   return (
-    <div className={`${size} menu-item`} onClick={handleClick}>
+    <div className={`${size} menu-item`} id={theme} onClick={handleClick}>
       <div
         style={{ backgroundImage: `url(${imageUrl})` }}
         className="background-image"

@@ -1,11 +1,15 @@
 .social {
   margin-left: 4rem;
 
-  a {
+ a {
     padding: 0 1rem;
     color: rgb(248, 53, 53);
     &:hover {
       color: gray;
     }
+  }
+
+  #dark a{
+    color: white;
   }
 }

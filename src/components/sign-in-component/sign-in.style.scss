@@ -1,3 +1,30 @@
+#dark .sign-container .logo {
+  filter: brightness(0) invert(1);
+}
+#light .sign-container {
+  background: #f8f9fa;
+  color: #222;
+}
+
+#dark .sign-container {
+  background: #232323;
+  color: #fff;
+}
+
+#dark .sign-container .greeting h1 {
+  background: #444;
+  color: #ffe082;
+}
+
+#dark .sign-container .link {
+  color: #ffe082;
+}
+
+#dark .sign-container .sign-in-form input {
+  background: #232323;
+  color: #fff;
+  border-bottom: 1px solid #888;
+}
 .sign-container {
   display: flex;
   flex-direction: column;

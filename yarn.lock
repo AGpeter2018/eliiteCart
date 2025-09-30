@@ -8558,6 +8558,13 @@ react-stripe-checkout@^2.6.3:
   resolved "https://registry.yarnpkg.com/react-stripe-checkout/-/react-stripe-checkout-2.6.3.tgz#3173a870b04e5a3c321a06d24cd53c6030111c45"
   integrity sha512-lnsCaAdlmwPGGMbQoI8FXtQUgEm+ktzPZ/ipAw4j0HYf80kef7CivGx6QitmgEn99/aa5hI/dmVXwfVZW/Mzfg==
 
+react-switch@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/react-switch/-/react-switch-7.1.0.tgz#5318f4745b83793fecbca16c49ba62da485a550b"
+  integrity sha512-4xVeyImZE8QOTDw2FmhWz0iqo2psoRiS7XzdjaZBCIP8Dzo3rT0esHUjLee5WsAPSFXWWl1eVA5arp9n2C6yQA==
+  dependencies:
+    prop-types "^15.7.2"
+
 react@^19.1.1:
   version "19.1.1"
   resolved "https://registry.yarnpkg.com/react/-/react-19.1.1.tgz#06d9149ec5e083a67f9a1e39ce97b06a03b644af"

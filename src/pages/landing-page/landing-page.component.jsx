@@ -15,6 +15,11 @@ import mail from "../../assets/mail_icon.svg";
 import call from "../../assets/call_icon.svg";
 import location from "../../assets/location_icon.svg";
 
+import { selectThemeColor } from "../../redux/theme/theme-selector";
+import { useSelector, useDispatch } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { themeChangeAction } from "../../redux/theme/theme-action";
+
 import "./landing-page.style.scss";
 
 const contentDetails = [
@@ -24,10 +29,14 @@ const contentDetails = [
 ];
 
 const LandingPage = () => {
+  const structureSelector = createStructuredSelector({
+    theme: selectThemeColor,
+  });
+  const { theme } = useSelector(structureSelector);
   return (
-    <div className="landing-page">
+    <div className="landing-page" >
       <Header />
-      <div className="landing-content">
+      <div className="landing-content" id={theme}>
         <div className="content-text">
           <h1>Welcome to EliteCart</h1>
           <p>Your one-stop solution for all your shopping needs.</p>
@@ -66,22 +75,22 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-      <section className="products">
+      <section className="products" id={theme}>
         <h2>Products</h2>
         <div className="underline"></div>
         <div className="product-info">
           <div className="product-img">
             <img src={productImage} alt="" className="product-image" />
           </div>
-          <div className="product-text">
-            <p>
+          <div className="product-text" >
+            <p id={theme}>
               EliteCart store is where fashion meets comfort! Discover a curated
               collection of trendy clothing designed to fit every style and
               occasion. From casual everyday wear to elegant outfits, we bring
               you quality fabrics, modern designs, and affordable prices all in
               one place.
             </p>
-            <p>
+            <p id={theme}>
               Whether you're looking for the latest fashion trends or timeless
               classics, EliteCart has something for everyone. Shop now and
               elevate your wardrobe with our exclusive collections!
@@ -97,7 +106,7 @@ const LandingPage = () => {
           <div className="contact-session">
             <div className="content-left">
               <h1>Let's talk</h1>
-              <p>
+              <p id={theme}>
                 At EliteCart, we're available to take on an inquiry, so feel
                 free to get in touch
               </p>
@@ -106,7 +115,7 @@ const LandingPage = () => {
                   return (
                     <div className="content-detail" key={index}>
                       <img src={detail.img} alt="" />
-                      <p>{detail.info}</p>
+                      <p id={theme}>{detail.info}</p>
                     </div>
                   );
                 })}

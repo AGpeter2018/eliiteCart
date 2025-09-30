@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setUserAuth } from "../../redux/user/user-action";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user-selector";
+import { selectThemeColor } from "../../redux/theme/theme-selector";
 import { selectHidden } from "../../redux/cart/cart-selector";
 
 import LogoCrown from "../../assets/crown-solid-full.svg";
@@ -18,11 +19,12 @@ const HeaderHome = () => {
   const structuredSelector = createStructuredSelector({
     currentUser: selectCurrentUser,
     hidden: selectHidden,
+    theme: selectThemeColor,
   });
-  const { currentUser, hidden } = useSelector(structuredSelector);
+  const { currentUser, hidden, theme } = useSelector(structuredSelector);
   const dispatch = useDispatch();
   return (
-    <div className="header">
+    <div className="header" id={theme}>
       <Link to="/" className="logo">
         <img src={LogoCrown} alt="" className="logo-img" />
       </Link>
@@ -43,12 +45,6 @@ const HeaderHome = () => {
               SignIn
             </Link>
           )}
-          {/* <img
-            src={CartIcon}
-            alt=""
-            className="cart-icon"
-            onClick={() => dispatch(dropDownAction())}
-          /> */}
           <ShoppingIcon />
         </div>
       </div>

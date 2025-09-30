@@ -47,6 +47,14 @@
     }
   }
 
+  #light .landing-content {
+    background-color: white;
+  }
+
+  #dark .landing-page .landing-content {
+    background-color: #181818 !important;
+  }
+
   .content-img {
     img {
       width: 800px;
@@ -161,8 +169,21 @@
           font-size: 20px;
           font-weight: 500;
         }
+        #light p {
+          color: white;
+        }
       }
     }
+  }
+
+  #light .products {
+    background-color: white;
+  }
+  #dark .landing-page .products {
+    background-color: #181818 !important;
+  }
+  #dark .landing-page .About {
+    background-color: #181818 !important;
   }
   .content {
     display: flex;
@@ -208,6 +229,10 @@
           color: #3a3a3b;
           font-size: 20px;
           line-height: 35px;
+        }
+
+        #light p {
+          color: white;
         }
       }
     }

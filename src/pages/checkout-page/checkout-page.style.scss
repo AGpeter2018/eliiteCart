@@ -1,3 +1,26 @@
+#light .checkout-page {
+  background: #fff;
+  color: #222;
+}
+
+#dark .checkout-page {
+  background: #181818;
+  color: #fff;
+}
+
+#dark .checkout-header {
+  border-bottom: 1px solid #444;
+}
+
+#dark .total {
+  color: #fff;
+}
+
+#dark .warning {
+  background: #2d2d2d;
+  color: #ffe082;
+  border: 1px solid #444;
+}
 // Make the warning message prominent
 .warning {
   background: #fff3cd;
