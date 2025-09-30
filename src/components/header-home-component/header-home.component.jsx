@@ -36,6 +36,9 @@ const HeaderHome = () => {
           <Link to="/shop" className="option">
             Contact
           </Link>
+          <Link to="/history" className="option">
+            History
+          </Link>
           {currentUser ? (
             <div className="option" onClick={() => dispatch(setUserAuth())}>
               SignOut

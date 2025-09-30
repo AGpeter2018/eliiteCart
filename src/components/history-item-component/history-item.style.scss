@@ -1,0 +1,87 @@
+.history-cart-item {
+  width: 80%;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  background-color: #f8f9fa;
+  transition: background 0.3s, color 0.3s;
+
+  img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-right: 32px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    background: #fff;
+  }
+
+  .history-item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: row; // Align children horizontally
+    align-items: center; // Center vertically
+    justify-content: center;
+    padding: 10px 20px;
+    padding-left: 300px;
+    gap: 24px; // Space between text and delete button
+
+    .history-details-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+
+      .history-name {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+      .history-price,
+      .history-quantity,
+      .history-date {
+        font-size: 16px;
+        margin-bottom: 4px;
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+    .history-remove-btn {
+      font-size: 22px;
+      color: #e74c3c;
+      cursor: pointer;
+      padding-left: 500px;
+      transition: color 0.2s;
+      align-self: center;
+      &:hover {
+        color: #c0392b;
+      }
+    }
+  }
+}
+
+// Light mode
+#light .history-cart-item {
+  background-color: #f8f9fa;
+  color: #222;
+  img {
+    background: #fff;
+  }
+}
+
+// Dark mode
+#dark .history-cart-item {
+  background-color: #23272f;
+  color: #f8f9fa;
+  img {
+    background: #181818;
+    filter: brightness(0.85);
+  }
+}
