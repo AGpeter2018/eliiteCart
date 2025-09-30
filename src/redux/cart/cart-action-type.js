@@ -13,3 +13,7 @@ export const removeQuantityActionType = {
 export const deleteCartItemType = {
   DELETE_CART_ITEM: "DELETE_CART_ITEM",
 };
+
+export const deleteHistoryItemType = {
+  DELETE_HISTORY_ITEM: "DELETE_HISTORY_ITEM",
+};

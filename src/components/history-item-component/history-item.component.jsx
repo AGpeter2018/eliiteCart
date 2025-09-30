@@ -1,7 +1,7 @@
 import React from "react";
 
 import { selectThemeColor } from "../../redux/theme/theme-selector";
-import { deleteCartItem } from "../../redux/cart/cart-action";
+import { deleteHistoryItem } from "../../redux/cart/cart-action";
 import { useSelector, useDispatch } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -14,6 +14,15 @@ const HistoryItem = ({ item }) => {
   });
   const { theme } = useSelector(structureSelector);
   const { imageUrl, price, quantity, name, date } = item;
+
+  let formattedDate = "";
+  let formattedTime = "";
+  if (date) {
+    const d = new Date(date);
+    formattedDate = d.toLocaleDateString();
+    formattedTime = d.toLocaleTimeString();
+  }
+
   return (
     <div className="history-cart-item" id={theme}>
       <img src={imageUrl} alt="" />
@@ -22,13 +31,14 @@ const HistoryItem = ({ item }) => {
         <span className="history-price">
           {quantity} x ${price}
         </span>
+        <span className="date">{formattedDate}</span>
+        <span className="time">{formattedTime}</span>
         <div
           className="history-remove-btn"
-          onClick={() => dispatch(deleteCartItem(item))}
+          onClick={() => dispatch(deleteHistoryItem(item))}
         >
           &#10006;
         </div>
-        <span className="date">{date}</span>
       </div>
     </div>
   );
