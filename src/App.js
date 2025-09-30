@@ -4,6 +4,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getUserAuth } from "./redux/user/user-action";
 import { selectCurrentUser } from "./redux/user/user-selector";
+import { selectThemeColor } from "./redux/theme/theme-selector";
+import { themeChangeAction } from "./redux/theme/theme-action";
 import { createStructuredSelector } from "reselect";
 
 import LandingPage from "./pages/landing-page/landing-page.component";
@@ -18,8 +20,9 @@ import "./App.css";
 const App = () => {
   const structuredSelector = createStructuredSelector({
     currentUser: selectCurrentUser,
+    theme: selectThemeColor,
   });
-  const { currentUser } = useSelector(structuredSelector);
+  const { currentUser, theme } = useSelector(structuredSelector);
   const dispatch = useDispatch();
   useEffect(() => {
     const unSubscribeFromAuth = dispatch(getUserAuth());
@@ -31,7 +34,7 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <div className="App" id={theme}>
       <Routes>
         <Route path="/" element={<LandingPage />} />
       </Routes>

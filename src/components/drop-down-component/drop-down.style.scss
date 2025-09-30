@@ -1,3 +1,17 @@
+#light .cart-drop-down {
+  background-color: #fff;
+  color: #222;
+}
+
+#dark .cart-drop-down {
+  background-color: #232323;
+  color: #fff;
+  border-color: #444;
+}
+
+#dark .cart-drop-down .cart-text {
+  color: #fff;
+}
 .cart-drop-down {
   position: absolute;
   width: 240px;

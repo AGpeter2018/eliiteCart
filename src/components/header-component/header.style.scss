@@ -10,6 +10,19 @@
   justify-content: space-between;
   align-items: center;
 
+  // Global theme backgrounds
+  #light,
+  #light body {
+    background-color: #fff !important;
+    color: #222;
+  }
+
+  #dark,
+  #dark body {
+    background-color: #181818 !important;
+    color: #fff;
+  }
+
   .logo {
     font-size: 12px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -23,6 +36,8 @@
 
   .nav-links {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     gap: 20px;
     padding-right: 100px;
 
@@ -34,6 +49,12 @@
       &:hover {
         color: #696a6e;
       }
+    }
+
+    .switch {
+      display: flex;
+      align-items: center;
+      margin-left: 15px;
     }
   }
 }

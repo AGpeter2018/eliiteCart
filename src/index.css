@@ -11,3 +11,11 @@ body {
   color: #333;
   height: 100vh;
 }
+
+#light{
+   background-color: white;
+  }
+#dark{
+   background-color: black;
+  }
+
