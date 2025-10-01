@@ -26,11 +26,17 @@
     border: none;
     background: none;
     outline: none;
-    margin: 0 30px;
+    // margin: 0px 20px;
+    margin-left: 120px;
     font-weight: 400;
     color: white;
     font-size: 24px;
     cursor: pointer;
+    transition: all 0.3s linear;
+
+    &:hover {
+      color: gray;
+    }
   }
 
   .submit {
@@ -38,7 +44,7 @@
   }
 
   .style {
-    margin-left: 70px;
+    margin-left: 62px;
   }
 
   .moving {

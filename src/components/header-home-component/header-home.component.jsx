@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import { setUserAuth } from "../../redux/user/user-action";
@@ -51,7 +51,7 @@ const HeaderHome = () => {
           <ShoppingIcon />
         </div>
       </div>
-      {hidden ? null : <DropDown />}
+      {currentUser ? hidden ? null : <DropDown /> : <Navigate to="/signIn" />}
     </div>
   );
 };

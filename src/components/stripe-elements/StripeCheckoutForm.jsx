@@ -4,10 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectThemeColor } from "../../redux/theme/theme-selector";
 import { selectCart } from "../../redux/cart/cart-selector";
 import { createStructuredSelector } from "reselect";
+
 import {
   addCartItemHistory,
   clearCartItem,
 } from "../../redux/cart/cart-action";
+import { addCartItemHistory } from "../../redux/cart/cart-action"
 
 const StripeCheckoutForm = ({ amount }) => {
   const strucruredSelector = createStructuredSelector({
@@ -128,6 +130,9 @@ const StripeCheckoutForm = ({ amount }) => {
         type="submit"
         disabled={!stripe || processing}
         style={buttonStyle}
+        onClick={() =>
+          items.forEach((item) => dispatch(addCartItemHistory(item)))
+        }
       >
         {processing ? "Processing..." : `Pay $${amount}`}
       </button>

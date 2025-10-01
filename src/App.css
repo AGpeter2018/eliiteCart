@@ -1,3 +1,7 @@
+.App {
+  min-height: 110vh;
+}
+
 #light {
   background-color: #fff;
   color: #222;
@@ -7,3 +11,23 @@
   background-color: #181818;
   color: #fff;
 }
+
+html,
+body {
+  min-height: 110vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* body#light,
+html#light {
+  background-color: #fff;
+  color: #222;
+}
+
+body#dark,
+html#dark {
+  background-color: #181818;
+  color: #f8f9fa;
+} */
