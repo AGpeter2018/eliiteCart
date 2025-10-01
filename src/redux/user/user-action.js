@@ -13,6 +13,7 @@ export const getUserAuth = () => {
       if (user) {
         const userRef = await createUserProfile(user);
         userRef.onSnapshot((snapshot) => {
+          console.log(snapshot.data());
           dispatch(
             setCurrentUser({
               id: snapshot.id,
