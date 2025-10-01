@@ -95,6 +95,8 @@ const StripeCheckoutForm = ({ amount }) => {
       setSuccess("Payment method created! (demo only)");
       setProcessing(false);
       alert("Payment successful!");
+
+      items.forEach((item) => dispatch(addCartItemHistory({ ...item })));
     }
   };
 
