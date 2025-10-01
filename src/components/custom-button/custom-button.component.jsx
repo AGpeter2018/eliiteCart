@@ -6,15 +6,16 @@ const CustomButton = ({
   children,
   isGoogle,
   signUp,
+  signIn,
   inverted,
   ...otherProps
 }) => {
   return (
     <div className="submitBtn">
       <button
-        className={`${isGoogle ? "style" : ""} ${signUp ? "moving" : ""} ${
-          inverted ? "inverted" : ""
-        } custom-button`}
+        className={`${isGoogle ? "style" : ""} ${signUp ? "moving" : ""}${
+          signIn ? "sign" : ""
+        }${inverted ? "inverted" : ""} custom-button`}
         {...otherProps}
       >
         {children}

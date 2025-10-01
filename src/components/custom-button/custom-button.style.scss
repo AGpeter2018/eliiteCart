@@ -1,6 +1,6 @@
 .submitBtn {
   margin-top: 20px;
-  padding: 10px 0;
+  padding: 10px 0px;
   background: gray;
   border-radius: 10px;
   transition: all 0.3s ease;
@@ -43,5 +43,9 @@
 
   .moving {
     margin-left: 160px;
+  }
+
+  .sign {
+    margin-left: 120px;
   }
 }

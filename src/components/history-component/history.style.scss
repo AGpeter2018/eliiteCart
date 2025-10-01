@@ -1,12 +1,26 @@
 .history {
+  min-height: 155vh;
   .history-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 150vh;
   }
 
   h1 {
     text-align: center;
+  }
+
+  .history-text {
+    text-align: center;
+    font-size: 25px;
+    padding-top: 100px;
+    // color: gray;
+  }
+
+  #light .history-text {
+    color: gray;
+  }
+  #dark .history-text {
+    color: white;
   }
 }
