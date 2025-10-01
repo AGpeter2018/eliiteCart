@@ -1,6 +1,7 @@
 import {
   dropDownActionType,
   addCartItemType,
+  addCartItemHistoryType,
   removeQuantityActionType,
   deleteCartItemType,
   deleteHistoryItemType,
@@ -10,6 +11,7 @@ import { addItems, cartRemove } from "./cartItem.utility";
 const INITIAL_STATE = {
   hidden: true,
   cartItems: [],
+  cartHistory: [],
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -23,6 +25,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cartItems: addItems(state.cartItems, action.payload),
+      };
+    case addCartItemHistoryType.ADD_ITEM_HISTORY:
+      return {
+        ...state,
+        cartHistory: addItems(state.cartHistory, action.payload),
       };
     case removeQuantityActionType.CART_QUANTITY_REMOVED:
       return {
@@ -39,7 +46,7 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     case deleteHistoryItemType.DELETE_HISTORY_ITEM:
       return {
         ...state,
-        cartItems: state.cartItems.filter(
+        cartHistory: state.cartHistory.filter(
           (item) => item.id !== action.payload.id
         ),
       };

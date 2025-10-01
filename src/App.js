@@ -59,7 +59,10 @@ const App = () => {
           element={currentUser ? <Navigate to="/shopPage" /> : <SignUp />}
         />
         <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path="/history" element={<HistoryPage />} />
+        <Route
+          path="/history"
+          element={currentUser ? <HistoryPage /> : <Navigate to="/signIn" />}
+        />
       </Routes>
     </div>
   );

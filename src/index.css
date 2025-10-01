@@ -12,10 +12,9 @@ body {
   height: 100vh;
 }
 
-#light{
-   background-color: white;
-  }
-#dark{
-   background-color: black;
-  }
-
+/* #light {
+  background-color: white;
+}
+#dark {
+  background-color: black;
+} */

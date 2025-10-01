@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectThemeColor } from "../../redux/theme/theme-selector";
 import { selectCart } from "../../redux/cart/cart-selector";
 import { createStructuredSelector } from "reselect";
-import History from "../history-component/history.component";
+import { addCartItemHistory } from "../../redux/cart/cart-action";
 
 const StripeCheckoutForm = ({ amount }) => {
   const strucruredSelector = createStructuredSelector({
     items: selectCart,
   });
   const { items } = useSelector(strucruredSelector);
-  console.log(items);
   const stripe = useStripe();
   const elements = useElements();
   const [processing, setProcessing] = useState(false);
@@ -98,6 +97,8 @@ const StripeCheckoutForm = ({ amount }) => {
     }
   };
 
+  const dispatch = useDispatch();
+
   return (
     <form onSubmit={handleSubmit} style={formStyle}>
       <h3
@@ -115,14 +116,13 @@ const StripeCheckoutForm = ({ amount }) => {
       <div style={{ marginBottom: 16 }}>
         <CardElement options={cardElementOptions} />
       </div>
-      {/* {items.map((item) => {
-        console.log(item);
-        return <History key={item.id} item={item} />;
-      })} */}
       <button
         type="submit"
         disabled={!stripe || processing}
         style={buttonStyle}
+        onClick={() =>
+          items.forEach((item) => dispatch(addCartItemHistory(item)))
+        }
       >
         {processing ? "Processing..." : `Pay $${amount}`}
       </button>

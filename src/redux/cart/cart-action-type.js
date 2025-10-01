@@ -6,6 +6,10 @@ export const addCartItemType = {
   ADD_ITEM_TO_CART: "ADD_ITEM_TO_CART",
 };
 
+export const addCartItemHistoryType = {
+  ADD_ITEM_HISTORY: "ADD_ITEM_HISTORY",
+};
+
 export const removeQuantityActionType = {
   CART_QUANTITY_REMOVED: "CART_QUANTITY_REMOVED",
 };

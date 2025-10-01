@@ -32,7 +32,7 @@ const Header = () => {
           </span>
           <ReactSwitch
             onChange={() => dispatch(themeChangeAction())}
-            checked={theme === "dark"}
+            checked={theme === "light"}
           />
         </div>
       </div>
