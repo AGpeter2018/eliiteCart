@@ -5,6 +5,7 @@ import {
   removeQuantityActionType,
   deleteCartItemType,
   deleteHistoryItemType,
+  clearCartItemType,
 } from "./cart-action-type";
 
 export const dropDownAction = () => ({
@@ -33,5 +34,10 @@ export const deleteCartItem = (item) => ({
 
 export const deleteHistoryItem = (item) => ({
   type: deleteHistoryItemType.DELETE_HISTORY_ITEM,
+  payload: item,
+});
+
+export const clearCartItem = (item) => ({
+  type: clearCartItemType.CLEAR_CART,
   payload: item,
 });

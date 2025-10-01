@@ -21,3 +21,7 @@ export const deleteCartItemType = {
 export const deleteHistoryItemType = {
   DELETE_HISTORY_ITEM: "DELETE_HISTORY_ITEM",
 };
+
+export const clearCartItemType = {
+  CLEAR_CART: "CLEAR_CART",
+};
