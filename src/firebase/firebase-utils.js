@@ -19,24 +19,31 @@ export const firestore = firebase.firestore();
 export const auth = firebase.auth();
 
 export const createUserProfile = async (userAuth, others) => {
+  console.log(userAuth);
   if (!userAuth) return;
   const userRef = firestore.doc(`users/${userAuth.uid}`);
   //   console.log(userRef);
   const snapshot = await userRef.get();
   //   console.log(snapshot);
   if (!snapshot.exists) {
-    const { displayName, email, photoUrl } = userAuth;
+    const { displayName, email, photoURL } = userAuth;
     const createdAt = new Date();
     try {
       await userRef.set({
         displayName,
         email,
-        photoUrl,
+        photoURL,
         createdAt,
         ...others,
       });
     } catch (error) {
       console.log(error.message);
+    }
+  } else {
+    // Ensure photoURL stays updated
+    const { photoURL } = userAuth;
+    if (photoURL && snapshot.data().photoURL !== photoURL) {
+      await userRef.update({ photoURL });
     }
   }
   return userRef;

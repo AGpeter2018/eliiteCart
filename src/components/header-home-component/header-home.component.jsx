@@ -9,9 +9,10 @@ import { selectThemeColor } from "../../redux/theme/theme-selector";
 import { selectHidden } from "../../redux/cart/cart-selector";
 
 import LogoCrown from "../../assets/crown-solid-full.svg";
-import CartIcon from "../../assets/122 shopping-bag.svg";
 import ShoppingIcon from "../shopping-icon-component/shopping-icon.component";
 import DropDown from "../drop-down-component/drop-down.component";
+
+import { FaRegUserCircle } from "react-icons/fa";
 
 import "./header-home.style.scss";
 
@@ -39,6 +40,20 @@ const HeaderHome = () => {
           <Link to="/history" className="option">
             History
           </Link>
+          <div>
+            {currentUser && currentUser.photoURL ? (
+              <img
+                src={currentUser.photoURL}
+                alt=""
+                style={{ width: "30px", height: "25px", borderRadius: "50%" }}
+              />
+            ) : (
+              <FaRegUserCircle
+                className="option"
+                style={{ width: "20px", height: "25px" }}
+              />
+            )}
+          </div>
           {currentUser ? (
             <div className="option" onClick={() => dispatch(setUserAuth())}>
               SignOut
