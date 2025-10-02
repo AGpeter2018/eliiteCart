@@ -19,7 +19,7 @@ const SocialIcon = () => {
   });
   const { theme } = useSelector(structureSelector);
   return (
-    <div className="social">
+    <div className="social" id={theme}>
       <a
         id={theme}
         href="https://x.com/AdenijiPet52714?t=7p0vbj0_F1RqAuiDu_q63w&s=09"

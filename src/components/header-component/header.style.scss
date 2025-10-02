@@ -11,17 +11,17 @@
   align-items: center;
 
   // Global theme backgrounds
-  #light,
-  #light body {
-    background-color: #fff !important;
-    color: #222;
-  }
+  // #light,
+  // #light body {
+  //   background-color: #fff !important;
+  //   color: #222;
+  // }
 
-  #dark,
-  #dark body {
-    background-color: #181818 !important;
-    color: #fff;
-  }
+  // #dark,
+  // #dark body {
+  //   background-color: #181818 !important;
+  //   color: #fff;
+  // }
 
   .logo {
     font-size: 12px;
@@ -41,20 +41,94 @@
     gap: 20px;
     padding-right: 100px;
 
+    li,
     a {
       text-decoration: none;
+      list-style: none;
       color: #7b93fe;
       font-weight: 500;
+      cursor: pointer;
 
       &:hover {
         color: #696a6e;
       }
     }
 
+    #dark li {
+      color: white;
+    }
+
     .switch {
       display: flex;
       align-items: center;
       margin-left: 15px;
+    }
+
+    .nav-close {
+      display: none;
+    }
+  }
+
+  .nav-open {
+    display: none;
+    font-size: 25px;
+  }
+}
+
+#dark.nav-bar-container {
+  background-color: black;
+}
+
+@media (max-width: 768px) {
+  .nav-bar-container {
+    // margin: 0px 5px;
+    // width: 100%;
+
+    .nav-open {
+      display: block;
+      position: fixed;
+      right: 30px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      position: fixed;
+      display: block;
+      top: -18px;
+      // gap: 30;
+      padding-top: 30px;
+      align-items: center;
+      background: #1f0016;
+      width: 200px;
+      height: 100%;
+      z-index: 2;
+      transition: right 0.5s;
+      right: -500px;
+
+      li {
+        padding-left: 90px;
+        padding-top: 60px;
+        font-size: 25px;
+      }
+
+      .nav-close {
+        display: block;
+        position: relative;
+        left: 250px;
+        width: 30;
+        cursor: pointer;
+      }
+
+      a,
+      .switch {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        padding-top: 40px;
+        padding-left: 45px;
+        align-items: center;
+        font-size: 25px;
+      }
     }
   }
 }

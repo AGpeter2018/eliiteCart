@@ -12,9 +12,16 @@ body {
   height: 100vh;
 }
 
-/* #light {
+#light {
   background-color: white;
 }
 #dark {
   background-color: black;
-} */
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

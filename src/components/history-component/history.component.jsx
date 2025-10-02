@@ -16,10 +16,14 @@ const HistoryPage = () => {
     <div className="history">
       <h1>HISTORY</h1>
       <div className="history-items">
-        {cartHistory.map((item) => {
-          console.log(item);
-          return <HistoryItem key={item.id} item={item} />;
-        })}
+        {cartHistory.length ? (
+          cartHistory.map((item) => {
+            console.log(item);
+            return <HistoryItem key={item.id} item={item} />;
+          })
+        ) : (
+          <p className="history-text">Your history is empty, pls make a cart</p>
+        )}
       </div>
     </div>
   );

@@ -26,8 +26,7 @@
     border: none;
     background: none;
     outline: none;
-    // margin: 0px 20px;
-    margin-left: 120px;
+    padding: 5px 10px;
     font-weight: 400;
     color: white;
     font-size: 24px;
@@ -49,5 +48,9 @@
 
   .moving {
     margin-left: 160px;
+  }
+
+  .sign {
+    margin-left: 120px;
   }
 }

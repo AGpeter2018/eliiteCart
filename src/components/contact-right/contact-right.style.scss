@@ -1,8 +1,71 @@
+// .content-right-block {
+//   .content-right {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: start;
+//     gap: 30px;
+
+//     label {
+//       color: #3a3a3b;
+//       font-size: 22px;
+//       font-weight: 500;
+//     }
+
+//     input {
+//       border: none;
+//       width: 700px;
+//       height: 78px;
+//       padding-left: 20px;
+//       border-radius: 4px;
+//       background: #32323c;
+//       color: white;
+//       font-family: Outfit;
+//       font-size: 20px;
+
+//       &::placeholder {
+//         color: white;
+//       }
+//     }
+
+//     textarea {
+//       width: 650px;
+//       border: none;
+//       padding: 25px;
+//       border-radius: 4px;
+//       background: #32323c;
+//       color: #3a3a3b;
+//       font-family: Outfit;
+//       font-size: 20px;
+
+//       &::placeholder {
+//         color: white;
+//       }
+//     }
+
+//     .contact-submit {
+//       border: none;
+//       color: white;
+//       border-radius: 10px;
+//       background: linear-gradient(264deg, #df8908 -5.09%, #8415ff 106.28%);
+//       font-size: 24px;
+//       padding: 15px 20px;
+//       margin-bottom: 50px;
+//       cursor: pointer;
+//       transition: 0.3s;
+
+//       &:hover {
+//         transform: scale(1.1);
+//         transition: 0.3s;
+//       }
+//     }
+//   }
+// }
+
 .content-right-block {
   .content-right {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     gap: 30px;
 
     label {
@@ -56,6 +119,43 @@
       &:hover {
         transform: scale(1.1);
         transition: 0.3s;
+      }
+    }
+  }
+
+  /* ✅ Responsive styles */
+  @media (max-width: 768px) {
+    .content-right {
+      align-items: center; // ✅ center form on mobile
+      width: 100%;
+      gap: 20px;
+
+      label {
+        font-size: 18px; // smaller font
+        text-align: left;
+        width: 100%;
+        max-width: 400px;
+      }
+
+      input,
+      textarea {
+        width: 90%; // ✅ fit smaller screens
+        max-width: 400px; // ✅ prevent extra wide
+        font-size: 16px;
+      }
+
+      textarea {
+        height: 150px; // ✅ better height for mobile
+        padding: 15px;
+      }
+
+      .contact-submit {
+        font-size: 18px;
+        padding: 12px 18px;
+        margin: 20px 0;
+        width: 90%;
+        max-width: 250px; // ✅ button doesn’t stretch too far
+        text-align: center;
       }
     }
   }

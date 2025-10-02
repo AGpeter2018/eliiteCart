@@ -16,7 +16,7 @@ const Footer = () => {
   });
   const { theme } = useSelector(structureSelector);
   return (
-    <div className="footer">
+    <div className="footer" id={theme}>
       <div className="footer-top">
         <div className="footer-top_left">
           <p id={theme}>

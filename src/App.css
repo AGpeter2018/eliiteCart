@@ -2,15 +2,15 @@
   min-height: 110vh;
 }
 
-#light {
+#light.App {
   background-color: #fff;
   color: #222;
 }
 
-#dark {
-  background-color: #181818;
+/* #dark {
+  background-color: #181818c5;
   color: #fff;
-}
+} */
 
 html,
 body {

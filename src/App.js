@@ -40,28 +40,52 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} />
       </Routes>
-      <HeaderHome />
       <Routes>
         <Route
           path="/shopPage"
-          element={currentUser ? <Homepage /> : <Navigate to="/signIn" />}
+          element={
+            <>
+              <HeaderHome />
+              {currentUser ? <Homepage /> : <Navigate to="/signIn" />}
+            </>
+          }
         />
         <Route
           path="/shop/*"
-          element={currentUser ? <Shop /> : <Navigate to="/signIn" />}
+          element={
+            <>
+              <HeaderHome />
+              {currentUser ? <Shop /> : <Navigate to="/signIn" />}
+            </>
+          }
         />
         <Route
           path="/signIn"
-          element={currentUser ? <Navigate to="/shopPage" /> : <SignInSignUp />}
+          element={
+            <>
+              <HeaderHome />
+              {currentUser ? <Navigate to="/shopPage" /> : <SignInSignUp />}
+            </>
+          }
         />
+        <Route path="/signUp" element={<SignUp />} />
         <Route
-          path="/signUp"
-          element={currentUser ? <Navigate to="/shopPage" /> : <SignUp />}
+          path="/checkout"
+          element={
+            <>
+              <HeaderHome />
+              {<CheckoutPage />}
+            </>
+          }
         />
-        <Route path="/checkout" element={<CheckoutPage />} />
         <Route
           path="/history"
-          element={currentUser ? <HistoryPage /> : <Navigate to="/signIn" />}
+          element={
+            <>
+              <HeaderHome />
+              {currentUser ? <HistoryPage /> : <Navigate to="/signIn" />}
+            </>
+          }
         />
       </Routes>
     </div>

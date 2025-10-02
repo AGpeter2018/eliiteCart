@@ -33,12 +33,12 @@ const HistoryItem = ({ item }) => {
         </span>
         <span className="date">{formattedDate}</span>
         <span className="time">{formattedTime}</span>
-        <div
+        {/* <div
           className="history-remove-btn"
           onClick={() => dispatch(deleteHistoryItem(item))}
         >
           &#10006;
-        </div>
+        </div> */}
       </div>
     </div>
   );

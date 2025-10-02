@@ -34,12 +34,12 @@ const LandingPage = () => {
   });
   const { theme } = useSelector(structureSelector);
   return (
-    <div className="landing-page" >
+    <div className="landing-page">
       <Header />
       <div className="landing-content" id={theme}>
         <div className="content-text">
           <h1>Welcome to EliteCart</h1>
-          <p>Your one-stop solution for all your shopping needs.</p>
+          <p id={theme}>Your one-stop solution for all your shopping needs.</p>
           <Link to="/signup" className="get-started-button">
             Get Started
           </Link>
@@ -48,7 +48,7 @@ const LandingPage = () => {
           <img src={HomeImage} alt="Shopping" />
         </div>
       </div>
-      <section className="About">
+      <section className="About" id="theme">
         <h2>About</h2>
         <div className="underline"></div>
         <div className="about-info">
@@ -82,7 +82,7 @@ const LandingPage = () => {
           <div className="product-img">
             <img src={productImage} alt="" className="product-image" />
           </div>
-          <div className="product-text" >
+          <div className="product-text">
             <p id={theme}>
               EliteCart store is where fashion meets comfort! Discover a curated
               collection of trendy clothing designed to fit every style and
@@ -98,8 +98,8 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-      <section className="contact">
-        <div id="contact" className="content">
+      <section className="contact" id={theme}>
+        <div className="content">
           <div className="content-title">
             <h1>Get in touch</h1>
           </div>

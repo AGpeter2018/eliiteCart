@@ -5,6 +5,7 @@ import "./custom-button.style.scss";
 const CustomButton = ({
   children,
   isGoogle,
+  signIn,
   signUp,
   inverted,
   ...otherProps
@@ -13,8 +14,8 @@ const CustomButton = ({
     <div className="submitBtn">
       <button
         className={`${isGoogle ? "style" : ""} ${signUp ? "moving" : ""} ${
-          inverted ? "inverted" : ""
-        } custom-button`}
+          signIn ? "sign" : ""
+        } ${inverted ? "inverted" : ""} custom-button`}
         {...otherProps}
       >
         {children}
