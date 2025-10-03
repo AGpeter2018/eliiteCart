@@ -39,12 +39,12 @@
 .signUp-container {
   display: flex;
   flex-direction: column;
-  //   align-items: center;
-  // justify-content: center;
-  // min-height: 50vh;
-  margin: 5rem auto;
+  min-height: 0vh;
+  // align-items: center;
+  justify-content: center;
+  margin: 0rem auto;
+  margin-bottom: 50px;
   max-width: 450px;
-  // padding-top: 100px;
   background: #f8f9fa;
   border-radius: 8px;
 
@@ -76,7 +76,6 @@
   .logo {
     height: 50px;
     width: 40px;
-    // padding-bottom: 1rem;
   }
   .body {
     margin-top: -30px;
@@ -94,12 +93,13 @@
         text-decoration: underline;
       }
     }
+
+    #dark.link {
+      color: #ffe082;
+    }
   }
 }
 
-// #dark.signUp-container {
-//   background: #2a2a2a;
-// }
-// #light.signUp-container {
-//   background: white;
-// }
+#dark label {
+  color: white;
+}

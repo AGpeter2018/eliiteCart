@@ -47,11 +47,11 @@
     }
   }
 
-  #dark.landing-content {
+  [data-theme="dark"].landing-content {
     background-color: #121212;
     color: white;
   }
-  #dark.landing-content p {
+  [data-theme="dark"].landing-content p {
     color: white;
   }
 
@@ -123,7 +123,7 @@
     }
 
     @media (max-width: 768px) {
-      margin-top: 30px;
+      // margin-top: 30px;
 
       h2 {
         padding-top: 35px;
@@ -144,13 +144,9 @@
     }
   }
 
-  #dark.About {
+  [data-theme="dark"] {
     background-color: black;
     color: white;
-  }
-  #light.About {
-    background-color: white;
-    // color: white;
   }
 
   .products {
@@ -172,7 +168,7 @@
       width: 100px;
       height: 3px;
       background: gray;
-      margin: 10px auto;
+      margin: 0px auto;
       position: relative;
     }
 
@@ -208,7 +204,7 @@
     }
 
     @media (max-width: 768px) {
-      margin-top: 50px;
+      // margin-top: 50px;
 
       h2 {
         font-size: 36px;
@@ -240,15 +236,14 @@
     }
   }
 
-  #light.products {
+  [data-theme="light"].products {
     background-color: white;
   }
 
-  #dark.products {
+  [data-theme="dark"].products {
     background-color: #2a2a2a;
-    color: white;
   }
-  #dark.products p {
+  [data-theme="dark"].products .product-text p {
     color: white;
   }
   // .content {
@@ -412,8 +407,8 @@
   }
 
   @media (max-width: 768px) {
-    margin: 40px 20px;
-    gap: 40px;
+    margin: 0px 0px;
+    // gap: 40px;
 
     .content-title h1 {
       font-size: 36px; // smaller "Get in touch"
@@ -434,7 +429,8 @@
 
         p {
           font-size: 16px;
-          line-height: 28px;
+          line-height: 1px;
+          width: 300px;
         }
       }
     }
@@ -445,12 +441,19 @@
       .content-detail {
         justify-content: center; // ✅ center details under text
       }
+
+      .icon {
+        margin-right: 80px;
+      }
     }
   }
 }
 
-#dark.contact {
+[data-theme="dark"].contact {
   background-color: #f5f5f5;
+}
+[data-theme="light"].contact {
+  background-color: rgb(247, 245, 245);
 }
 #dark.contact p {
   color: #222;

@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { IoMenuSharp } from "react-icons/io5";
 import MenuClose from "../../assets/menu_close.svg";
+import CrownLogo from "../../assets/crown-solid-full.svg";
 
 import "./header.style.scss";
 
@@ -29,6 +30,7 @@ const Header = () => {
     <div className="nav-bar-container" id={theme}>
       <div className="logo">
         <h1>EliteCart</h1>
+        <img src={CrownLogo} alt="" className="logo-img" />
       </div>
       <IoMenuSharp className="nav-open" onClick={openRef} id={theme} />
       <ul ref={menuRef} className="nav-links">

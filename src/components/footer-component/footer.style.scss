@@ -1,5 +1,5 @@
 .footer {
-  margin: 50px 170px;
+  margin: 0px 170px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -99,12 +99,13 @@
 
     .footer-bottom_right {
       font-size: 23px;
+      margin-right: 20px;
     }
   }
 
   /* ✅ Responsive Footer */
   @media (max-width: 768px) {
-    margin: 40px 20px;
+    margin: 0px 20px;
 
     .footer-top {
       flex-direction: column;
@@ -159,11 +160,12 @@
 
       .footer-bottom_right {
         font-size: 20px;
+        margin-right: 70px;
       }
     }
   }
 }
 
-// #dark.footer {
-//   background: black;
-// }
+#dark.footer p {
+  color: white;
+}

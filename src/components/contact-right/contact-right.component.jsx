@@ -8,7 +8,7 @@ import { themeChangeAction } from "../../redux/theme/theme-action";
 import "./contact-right.style.scss";
 
 const ContactRight = () => {
-    const structureSelector = createStructuredSelector({
+  const structureSelector = createStructuredSelector({
     theme: selectThemeColor,
   });
   const { theme } = useSelector(structureSelector);
@@ -19,16 +19,22 @@ const ContactRight = () => {
         action="https://formspree.io/f/movnookg" // your endpoint URL
         method="POST"
       >
-        <label htmlFor="name" id={theme}>Your Name</label>
+        <label htmlFor="name" data-theme={theme}>
+          Your Name
+        </label>
         <input type="text" placeholder="Enter your name" name="name" required />
-        <label htmlFor="email" id={theme}>Your Email</label>
+        <label htmlFor="email" data-theme={theme}>
+          Your Email
+        </label>
         <input
           type="email"
           placeholder="Enter your email"
           name="email"
           required
         />
-        <label htmlFor="message" id={theme}>Write your message here</label>
+        <label htmlFor="message" data-theme={theme}>
+          Write your message here
+        </label>
         <textarea
           name="message"
           rows="8"

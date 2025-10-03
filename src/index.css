@@ -12,13 +12,6 @@ body {
   height: 100vh;
 }
 
-#light {
-  background-color: white;
-}
-#dark {
-  background-color: black;
-}
-
 html,
 body {
   height: 100%;

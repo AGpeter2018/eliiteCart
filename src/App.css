@@ -7,10 +7,10 @@
   color: #222;
 }
 
-/* #dark {
+#dark.App {
   background-color: #181818c5;
   color: #fff;
-} */
+}
 
 html,
 body {

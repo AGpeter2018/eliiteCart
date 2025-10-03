@@ -27,6 +27,7 @@ const HeaderHome = () => {
   return (
     <div className="header" id={theme}>
       <Link to="/" className="logo">
+        <span>EliteCart</span>
         <img src={LogoCrown} alt="" className="logo-img" />
       </Link>
       <div className="option-container">

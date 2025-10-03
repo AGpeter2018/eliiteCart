@@ -72,7 +72,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="signUp-container">
+    <div className="signUp-container" id={theme}>
       <img src={LogoCrown} alt="logo" className="logo" />
       <h2 className="title">I do not have an account</h2>
       <h3>Sign up with your email and password</h3>
@@ -113,8 +113,8 @@ const SignUp = () => {
           <CustomButton signUp type="submit">
             Sign Up
           </CustomButton>
-          <div className="link">
-            Having an account yet ? <Link to="/signIn">sign in</Link>
+          <div className="link" id={theme}>
+            Having an account ? <Link to="/signIn">sign in</Link>
           </div>
         </div>
       </form>

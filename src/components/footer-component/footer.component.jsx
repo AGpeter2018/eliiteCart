@@ -43,7 +43,7 @@ const Footer = () => {
           &copy; 2026 EliteCart. All rights reserved.
         </p>
         <div className="footer-bottom_right">
-          <SocialIcon className="footer-icon" />
+          <SocialIcon className="footer-icon" id={theme} />
         </div>
       </div>
     </div>
