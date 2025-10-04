@@ -13,8 +13,8 @@ import ShoppingIcon from "../shopping-icon-component/shopping-icon.component";
 import DropDown from "../drop-down-component/drop-down.component";
 
 import { FaRegUserCircle } from "react-icons/fa";
-import OpenMenu from "../../assets/bars-solid-full.svg";
-import CloseMenu from "../../assets/xmark-solid-full.svg";
+import { IoMenuSharp } from "react-icons/io5";
+import CloseMenu from "../../assets/menu_close.svg";
 
 import "./header-home.style.scss";
 
@@ -39,7 +39,9 @@ const HeaderHome = () => {
         <span>EliteCart</span>
         <img src={LogoCrown} alt="" className="logo-img" />
       </Link>
-      <img src={OpenMenu} alt="" className="openMenu" onClick={openMenu} />
+      <div>
+        <IoMenuSharp className="openMenu" onClick={openMenu} id={theme} />
+      </div>
       <div className="option-container">
         <div ref={menuRef} className="options">
           <img
@@ -47,17 +49,18 @@ const HeaderHome = () => {
             alt=""
             className="closeMenu"
             onClick={closeMenu}
+            id={theme}
           />
-          <Link to="/shopPage" className="option">
+          <Link to="/shopPage" className="option" id={theme}>
             Shop
           </Link>
-          <Link to="/shop" className="option">
+          <Link to="/shop" className="option" id={theme}>
             Contact
           </Link>
-          <Link to="/history" className="option">
+          <Link to="/history" className="option" id={theme}>
             History
           </Link>
-          <div className="option option-image">
+          <div className="option option-image" id={theme}>
             {currentUser && currentUser.photoURL ? (
               <img
                 src={currentUser.photoURL}
@@ -67,6 +70,7 @@ const HeaderHome = () => {
             ) : (
               <FaRegUserCircle
                 className="option option-image"
+                id={theme}
                 style={{ width: "20px", height: "25px" }}
               />
             )}
@@ -74,12 +78,13 @@ const HeaderHome = () => {
           {currentUser ? (
             <div
               className=" option option-out"
+              id={theme}
               onClick={() => dispatch(setUserAuth())}
             >
               SignOut
             </div>
           ) : (
-            <Link to="/signIn" className="option option-out">
+            <Link to="/signIn" className="option option-out" id={theme}>
               SignIn
             </Link>
           )}

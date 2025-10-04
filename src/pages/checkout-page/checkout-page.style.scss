@@ -8,6 +8,15 @@
   color: #fff;
 }
 
+@media screen and (max-width: 768px) {
+  #dark .checkout-page {
+    background: #181818;
+    color: #fff;
+    // width: 90%;
+    padding-right: 30px;
+  }
+}
+
 #dark .checkout-header {
   border-bottom: 1px solid #444;
 }
@@ -21,7 +30,7 @@
   color: #ffe082;
   border: 1px solid #444;
 }
-// Make the warning message prominent
+
 .warning {
   background: #fff3cd;
   color: #856404;
@@ -35,6 +44,13 @@
   box-shadow: 0 2px 8px rgba(255, 193, 7, 0.08);
   letter-spacing: 0.02em;
 }
+
+@media screen and (max-width: 768px) {
+  .warning {
+    margin-left: 30px;
+  }
+}
+
 .checkout-page {
   width: 55%;
   min-height: 90vh;

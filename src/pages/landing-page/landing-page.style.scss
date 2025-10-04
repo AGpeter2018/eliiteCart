@@ -84,6 +84,8 @@
       background: gray;
       margin: 10px auto; // ✅ auto-center
       position: relative; // ✅ no hardcoded right: 760px
+      top: -30px;
+      background-color: #962205;
     }
 
     .about-info {
@@ -166,10 +168,12 @@
 
     .underline {
       width: 100px;
-      height: 3px;
+      height: 1px;
       background: gray;
-      margin: 0px auto;
+      margin: 10px auto;
       position: relative;
+      top: -30px;
+      background-color: #962205;
     }
 
     .product-info {
@@ -246,72 +250,6 @@
   [data-theme="dark"].products .product-text p {
     color: white;
   }
-  // .content {
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  //   justify-content: center;
-  //   gap: 80px;
-  //   margin: 80px 170px;
-
-  //   .content-title {
-  //     position: relative;
-
-  //     h1 {
-  //       padding: 0px 30px;
-  //       font-size: 50px;
-  //       font-weight: 600;
-  //       background: linear-gradient(270deg, #ff7e5f 10%, #7b93fe 100%);
-  //       -webkit-background-clip: text;
-  //       -webkit-text-fill-color: transparent;
-  //     }
-  //   }
-
-  //   .contact-session {
-  //     display: flex;
-  //     gap: 150px;
-
-  //     .content-left {
-  //       display: flex;
-  //       flex-direction: column;
-  //       gap: 30px;
-
-  //       h1 {
-  //         font-size: 80px;
-  //         font-weight: 700;
-  //         background: linear-gradient(270deg, #df8908 80%, #b415ff 100%);
-  //         background-clip: text;
-  //         -webkit-background-clip: text;
-  //         -webkit-text-fill-color: transparent;
-  //       }
-
-  //       p {
-  //         max-width: 550px;
-  //         color: #3a3a3b;
-  //         font-size: 20px;
-  //         line-height: 35px;
-  //       }
-
-  //       #light p {
-  //         color: white;
-  //       }
-  //     }
-  //   }
-
-  //   .content-details {
-  //     display: flex;
-  //     flex-direction: column;
-  //     gap: 30px;
-  //     color: #d8d8d8;
-  //     font-size: 22px;
-
-  //     .content-detail {
-  //       display: flex;
-  //       align-items: center;
-  //       gap: 20px;
-  //     }
-  //   }
-  // }
 }
 
 .contact {
@@ -328,6 +266,16 @@
 
     .content-title {
       position: relative;
+
+      .underline {
+        width: 100px;
+        height: 2px;
+        background: gray;
+        margin: 10px auto;
+        position: relative;
+        top: -30px;
+        background-color: #962205;
+      }
 
       h1 {
         padding: 0px 30px;

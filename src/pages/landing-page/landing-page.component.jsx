@@ -36,7 +36,7 @@ const LandingPage = () => {
   return (
     <div className="landing-page">
       <Header />
-      <div className="landing-content" data-theme={theme}>
+      <div className="landing-content" id="home" data-theme={theme}>
         <div className="content-text">
           <h1>Welcome to EliteCart</h1>
           <p id={theme}>Your one-stop solution for all your shopping needs.</p>
@@ -48,7 +48,7 @@ const LandingPage = () => {
           <img src={HomeImage} alt="Shopping" />
         </div>
       </div>
-      <section className="About" data-theme={theme}>
+      <section className="About" id="about" data-theme={theme}>
         <h2>About</h2>
         <div className="underline"></div>
         <div className="about-info">
@@ -75,7 +75,7 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-      <section className="products" data-theme={theme}>
+      <section className="products" id="product" data-theme={theme}>
         <h2>Products</h2>
         <div className="underline"></div>
         <div className="product-info">
@@ -98,10 +98,11 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-      <section className="contact" data-theme={theme}>
+      <section className="contact" id="contact" data-theme={theme}>
         <div className="content">
           <div className="content-title">
             <h1>Get in touch</h1>
+            <div className="underline"></div>
           </div>
           <div className="contact-session">
             <div className="content-left">
