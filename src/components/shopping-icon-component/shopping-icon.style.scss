@@ -25,3 +25,19 @@
     font-weight: bold;
   }
 }
+
+@media (max-width: 768px) {
+  .cart-icon {
+    .shopping-icon {
+      filter: brightness(0) invert(1);
+    }
+
+    .item-count {
+      position: absolute;
+      top: 50%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      padding: auto;
+    }
+  }
+}
