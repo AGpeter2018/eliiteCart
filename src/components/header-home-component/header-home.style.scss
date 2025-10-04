@@ -6,6 +6,12 @@
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
+  .openMenu {
+    font-size: 25px;
+    display: none;
+    color: red;
+  }
+
   .logo {
     display: flex;
     height: 40px;
@@ -30,6 +36,11 @@
     align-items: center;
     margin-bottom: -10px;
 
+    .closeMenu {
+      display: none;
+      color: red;
+    }
+
     .option {
       padding: 0px 15px;
       text-decoration: none;
@@ -46,6 +57,69 @@
       display: block;
       width: 30px;
       height: 35px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    .openMenu {
+      display: block;
+      position: fixed;
+      right: 70px;
+      width: 30px;
+      height: 30px;
+      color: red;
+      font-family: 30px;
+      font-size: 10px;
+      cursor: pointer;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      padding-top: 20px;
+      background: #ece5ea;
+      color: white;
+      width: 200px;
+      height: 100%;
+      z-index: 2;
+      transition: right 0.5s;
+      .closeMenu {
+        display: block;
+        position: relative;
+        top: -15px;
+        left: 60px;
+        font-size: 30px;
+        width: 30px;
+        height: 50px;
+        cursor: pointer;
+
+        &:hover {
+          color: red;
+        }
+      }
+      .option {
+        padding-top: 30px;
+        font-size: 20px;
+        cursor: pointer;
+
+        &:hover {
+          color: gray;
+        }
+      }
+
+      .option-image {
+        margin-top: 10px;
+      }
+
+      .option-out {
+        margin-top: -10px;
+        margin-bottom: 20px;
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link, Navigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -13,6 +13,8 @@ import ShoppingIcon from "../shopping-icon-component/shopping-icon.component";
 import DropDown from "../drop-down-component/drop-down.component";
 
 import { FaRegUserCircle } from "react-icons/fa";
+import OpenMenu from "../../assets/bars-solid-full.svg";
+import CloseMenu from "../../assets/xmark-solid-full.svg";
 
 import "./header-home.style.scss";
 
@@ -24,14 +26,28 @@ const HeaderHome = () => {
   });
   const { currentUser, hidden, theme } = useSelector(structuredSelector);
   const dispatch = useDispatch();
+  const menuRef = useRef();
+  const openMenu = () => {
+    menuRef.current.style.right = "0px";
+  };
+  const closeMenu = () => {
+    menuRef.current.style.right = "-500px";
+  };
   return (
     <div className="header" id={theme}>
       <Link to="/" className="logo">
         <span>EliteCart</span>
         <img src={LogoCrown} alt="" className="logo-img" />
       </Link>
+      <img src={OpenMenu} alt="" className="openMenu" onClick={openMenu} />
       <div className="option-container">
-        <div className="options">
+        <div ref={menuRef} className="options">
+          <img
+            src={CloseMenu}
+            alt=""
+            className="closeMenu"
+            onClick={closeMenu}
+          />
           <Link to="/shopPage" className="option">
             Shop
           </Link>
@@ -41,7 +57,7 @@ const HeaderHome = () => {
           <Link to="/history" className="option">
             History
           </Link>
-          <div>
+          <div className="option option-image">
             {currentUser && currentUser.photoURL ? (
               <img
                 src={currentUser.photoURL}
@@ -50,17 +66,20 @@ const HeaderHome = () => {
               />
             ) : (
               <FaRegUserCircle
-                className="option"
+                className="option option-image"
                 style={{ width: "20px", height: "25px" }}
               />
             )}
           </div>
           {currentUser ? (
-            <div className="option" onClick={() => dispatch(setUserAuth())}>
+            <div
+              className=" option option-out"
+              onClick={() => dispatch(setUserAuth())}
+            >
               SignOut
             </div>
           ) : (
-            <Link to="/signIn" className="option">
+            <Link to="/signIn" className="option option-out">
               SignIn
             </Link>
           )}
