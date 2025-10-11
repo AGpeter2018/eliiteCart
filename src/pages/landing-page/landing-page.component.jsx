@@ -39,14 +39,14 @@ const LandingPage = () => {
       <div className="landing-content" id="home" data-theme={theme}>
         <div className="content-text">
           <h1>Welcome to EliteCart</h1>
-          <p id={theme}>Your one-stop solution for all your shopping needs.</p>
+          <p id={theme}>EliteCart brings together everything you love about fashion style, quality, and affordability all in one place. From everyday wear to luxury outfits, we’ve got you covered with top brands, trendy collections, and trusted fashion sellers.</p>
           <Link to="/signup" className="get-started-button">
             Get Started
           </Link>
         </div>
-        <div className="content-img">
+        
           <img src={HomeImage} alt="Shopping" />
-        </div>
+        
       </div>
       <section className="About" id="about" data-theme={theme}>
         <h2>About</h2>
