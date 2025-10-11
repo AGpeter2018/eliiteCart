@@ -1,70 +1,124 @@
-# Getting Started with Create React App
+🛍️ EliteCart — Modern E-Commerce Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+EliteCart is a full-featured e-commerce web application built with React and Redux, designed for speed, usability, and scalability.
+It provides a smooth shopping experience with user authentication, dynamic products, cart management, and secure Stripe payments.
 
-## Available Scripts
+🚀 Features
+🧑‍💻 User Authentication
 
-In the project directory, you can run:
+Sign up and sign in with Firebase Authentication
 
-### `npm start`
+Google sign-in support
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Redirect users based on login state
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🛒 Shopping Experience
 
-### `npm test`
+Dynamic product collections
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Category-based product display
 
-### `npm run build`
+Add, remove, and clear items from cart
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Real-time cart updates and quantity management
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+💳 Payments
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Stripe payment integration (test mode)
 
-### `npm run eject`
+Checkout with order summary
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+🎨 Interface & Design
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Clean, responsive layout (mobile-first)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Theme-based color switching (light/dark)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Smooth animations and transitions
 
-## Learn More
+🧩 Tech Stack
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Frontend: React.js, React Router DOM, Redux, Redux-Thunk
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Backend/Auth: Firebase Authentication
 
-### Code Splitting
+Payment: Stripe API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Styling: SCSS, CSS Modules
 
-### Analyzing the Bundle Size
+Build Tool: Vite or Create React App (depending on setup)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+⚙️ Installation and Setup
 
-### Making a Progressive Web App
+1. Clone the repository
+   git clone https://github.com/AGpeter2018/elitecart.git
+   cd elitecart
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. Install dependencies
+   npm install
 
-### Advanced Configuration
+# or
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+yarn install
 
-### Deployment
+4. Run the development server
+   npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# or
 
-### `npm run build` fails to minify
+yarn start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Visit http://localhost:3000
+to view the app.
+
+💳 Stripe Test Payment
+
+Use the following test card for demo payments:
+
+Card Number: 4242 4242 4242 4242
+Expiry Date: Any future date
+CVC: Any 3 digits
+ZIP: Any 5 digits
+
+Core Functionalities
+
+Firebase-based authentication and user management
+
+Persistent cart data using Redux
+
+Secure checkout process
+
+Conditional routing for protected pages
+
+Mobile-friendly responsive design
+
+📸 Screenshots (Optional)
+
+Add your screenshots here to show your app UI:
+
+![Homepage Screenshot](./screenshots/homepage.png)
+![Cart Screenshot](./screenshots/cart.png)
+
+🤝 Contributing
+
+Fork this repository
+
+Create your feature branch:
+
+git checkout -b feature/YourFeature
+
+Commit your changes:
+
+git commit -m "Add new feature"
+
+Push to the branch:
+
+git push origin feature/YourFeature
+
+Open a pull request
+
+👨‍💻 Author
+
+Adeniji Peter
+GitHub: @AGpeter2018
+Email: adenijipeter2018@gmail.com

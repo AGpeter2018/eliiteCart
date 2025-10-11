@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { useRef, useState } from "react";
 import ReactSwitch from "react-switch";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 import { selectThemeColor } from "../../redux/theme/theme-selector";
 import { themeChangeAction } from "../../redux/theme/theme-action";
@@ -35,12 +35,35 @@ const Header = () => {
       <IoMenuSharp className="nav-open" onClick={openRef} id={theme} />
       <ul ref={menuRef} className="nav-links">
         <img src={MenuClose} alt="" className="nav-close" onClick={closeRef} />
-        <li id={theme}>Home</li>
-        <li id={theme}>About</li>
-        <li id={theme}>Product</li>
-        <li id={theme}>Contact</li>
+        <li id={theme}>
+          <AnchorLink className="anchor-link" offset={50} href="#home">
+            Home
+          </AnchorLink>
+        </li>
+        <li id={theme}>
+          <AnchorLink className="anchor-link" offset={50} href="#about">
+            About
+          </AnchorLink>
+        </li>
+        <li id={theme}>
+          <AnchorLink className="anchor-link" offset={50} href="#product">
+            Product
+          </AnchorLink>
+        </li>
+        <li id={theme}>
+          <AnchorLink className="anchor-link" offset={50} href="#contact">
+            Contact
+          </AnchorLink>
+        </li>
         <div className="switch">
-          <span style={{ marginRight: 8, fontWeight: 500, color: "#7b93fe" }}>
+          <span
+            style={{
+              marginRight: 8,
+              fontWeight: 500,
+              fontSize: 20,
+              color: "#962205",
+            }}
+          >
             {theme === "dark" ? "Dark Mode" : "Light Mode"}
           </span>
           <ReactSwitch

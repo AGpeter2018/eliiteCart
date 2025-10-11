@@ -9,35 +9,24 @@ import {
   addCartItemHistory,
   clearCartItem,
 } from "../../redux/cart/cart-action";
-// import { addCartItemHistory } from "../../redux/cart/cart-action"
+
+import "./stripe-checkout.style.scss";
 
 const StripeCheckoutForm = ({ amount }) => {
   const strucruredSelector = createStructuredSelector({
     items: selectCart,
+    theme: selectThemeColor,
   });
-  const { items } = useSelector(strucruredSelector);
+  const { items, theme } = useSelector(strucruredSelector);
   const stripe = useStripe();
   const elements = useElements();
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
-  const theme = useSelector(selectThemeColor); // 'light' or 'dark' from Redux
+  // const theme = useSelector(selectThemeColor); // 'light' or 'dark' from Redux
 
   // Theme-based styles
   const isDark = theme === "dark";
-  const formStyle = {
-    width: 480,
-    maxWidth: 520,
-    margin: "30px auto 0 auto",
-    padding: 36,
-    border: isDark ? "1px solid #444" : "1px solid #eee",
-    borderRadius: 12,
-    background: isDark ? "#232323" : "#fafbfc",
-    color: isDark ? "#fff" : "#222",
-    boxShadow: isDark
-      ? "0 4px 24px rgba(0,0,0,0.25)"
-      : "0 4px 24px rgba(50,50,93,0.07)",
-  };
   const buttonStyle = {
     marginTop: 20,
     width: "100%",
@@ -110,7 +99,12 @@ const StripeCheckoutForm = ({ amount }) => {
   const dispatch = useDispatch();
 
   return (
-    <form onSubmit={handleSubmit} style={formStyle}>
+    <form
+      onSubmit={handleSubmit}
+      // style={{ formStyle, width: "300px" }}
+      className="checkout-form"
+      id={theme}
+    >
       <h3
         style={{
           textAlign: "center",

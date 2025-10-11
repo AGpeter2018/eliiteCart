@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
-  background-color: white;
+  background-color: #130a10;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   .openMenu {
@@ -63,13 +63,15 @@
 
 @media (max-width: 768px) {
   .header {
+    background-color: black;
     .openMenu {
       display: block;
       position: fixed;
-      right: 70px;
+      right: 10px;
+      top: 20px;
       width: 30px;
       height: 30px;
-      color: red;
+      color: white;
       font-family: 30px;
       font-size: 10px;
       cursor: pointer;
@@ -82,28 +84,27 @@
       position: fixed;
       top: 0;
       padding-top: 20px;
-      background: #ece5ea;
+      background: #130a10;
       color: white;
       width: 200px;
       height: 100%;
       z-index: 2;
       transition: right 0.5s;
+
       .closeMenu {
         display: block;
         position: relative;
-        top: -15px;
-        left: 60px;
-        font-size: 30px;
-        width: 30px;
-        height: 50px;
+        top: -10px;
+        left: 80px;
+        width: 20px;
+        height: 20px;
         cursor: pointer;
-
-        &:hover {
-          color: red;
-        }
+        border: none;
+        outline: none;
       }
       .option {
-        padding-top: 30px;
+        margin-top: 40px;
+        padding: 25px;
         font-size: 20px;
         cursor: pointer;
 
@@ -125,7 +126,7 @@
 }
 
 #light.header {
-  background-color: #fff;
+  background-color: #5c5b5b;
   color: #222;
 }
 
@@ -134,8 +135,11 @@
   color: #fff;
 }
 
-#dark .option {
+#dark.option {
   color: #fff;
+}
+#light.option {
+  color: white;
 }
 #dark .option:hover {
   color: #bbb;
