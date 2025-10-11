@@ -1,71 +1,8 @@
-// // .content-right-block {
-// //   .content-right {
-// //     display: flex;
-// //     flex-direction: column;
-// //     align-items: start;
-// //     gap: 30px;
-
-// //     label {
-// //       color: #3a3a3b;
-// //       font-size: 22px;
-// //       font-weight: 500;
-// //     }
-
-// //     input {
-// //       border: none;
-// //       width: 700px;
-// //       height: 78px;
-// //       padding-left: 20px;
-// //       border-radius: 4px;
-// //       background: #32323c;
-// //       color: white;
-// //       font-family: Outfit;
-// //       font-size: 20px;
-
-// //       &::placeholder {
-// //         color: white;
-// //       }
-// //     }
-
-// //     textarea {
-// //       width: 650px;
-// //       border: none;
-// //       padding: 25px;
-// //       border-radius: 4px;
-// //       background: #32323c;
-// //       color: #3a3a3b;
-// //       font-family: Outfit;
-// //       font-size: 20px;
-
-// //       &::placeholder {
-// //         color: white;
-// //       }
-// //     }
-
-// //     .contact-submit {
-// //       border: none;
-// //       color: white;
-// //       border-radius: 10px;
-// //       background: linear-gradient(264deg, #df8908 -5.09%, #8415ff 106.28%);
-// //       font-size: 24px;
-// //       padding: 15px 20px;
-// //       margin-bottom: 50px;
-// //       cursor: pointer;
-// //       transition: 0.3s;
-
-// //       &:hover {
-// //         transform: scale(1.1);
-// //         transition: 0.3s;
-// //       }
-// //     }
-// //   }
-// // }
-
 // .content-right-block {
 //   .content-right {
 //     display: flex;
 //     flex-direction: column;
-//     align-items: flex-start;
+//     align-items: start;
 //     gap: 30px;
 
 //     label {
@@ -122,176 +59,114 @@
 //       }
 //     }
 //   }
-
-//   /* ✅ Responsive styles */
-//   @media (max-width: 768px) {
-//     .content-right {
-//       align-items: center; // ✅ center form on mobile
-//       width: 200%;
-//       gap: 20px;
-
-//       label {
-//         font-size: 18px; // smaller font
-//         text-align: left;
-//         // width: 100%;
-//         max-width: 400px;
-//         border-radius: 10px;
-//         padding: 5px;
-//       }
-
-//       input,
-//       textarea {
-//         width: 90%; // ✅ fit smaller screens
-//         max-width: 400px; // ✅ prevent extra wide
-//         font-size: 16px;
-//       }
-
-//       textarea {
-//         height: 150px; // ✅ better height for mobile
-//         padding: 15px;
-//       }
-
-//       .contact-submit {
-//         font-size: 18px;
-//         padding: 12px 18px;
-//         margin: 20px 0;
-//         width: 90%;
-//         max-width: 250px; // ✅ button doesn’t stretch too far
-//         text-align: center;
-//       }
-//     }
-//   }
 // }
-
-// [data-theme="dark"].contact label {
-//   color: white;
-//   background-color: gray;
-// }
-
 
 .content-right-block {
-  display: flex;
-  justify-content: center;
-  /* centers the form horizontally */
-  align-items: center;
-  /* centers vertically (if you give section height) */
-  width: 100%;
-  min-height: 100vh;
-  padding: 40px 20px;
-  box-sizing: border-box;
-
   .content-right {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    width: 100%;
-    max-width: 700px;
-    /* keeps form from being too wide */
-    background: transparent;
+    align-items: start;
+    gap: 30px;
+
+    label {
+      color: #3a3a3b;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    input {
+      border: none;
+      width: 700px;
+      height: 78px;
+      padding-left: 20px;
+      border-radius: 4px;
+      background: #32323c;
+      color: white;
+      font-family: Outfit;
+      font-size: 20px;
+
+      &::placeholder {
+        color: white;
+      }
+    }
+
+    textarea {
+      width: 650px;
+      border: none;
+      padding: 25px;
+      border-radius: 4px;
+      background: #32323c;
+      color: #3a3a3b;
+      font-family: Outfit;
+      font-size: 20px;
+
+      &::placeholder {
+        color: white;
+      }
+    }
+
+    .contact-submit {
+      border: none;
+      color: white;
+      border-radius: 10px;
+      background: linear-gradient(264deg, #df8908 -5.09%, #8415ff 106.28%);
+      font-size: 24px;
+      padding: 15px 20px;
+      margin-bottom: 50px;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: 0.3s;
+      }
+    }
   }
 
-  label {
-    align-self: flex-start;
-    color: #3a3a3b;
-    font-size: 22px;
-    font-weight: 500;
-  }
+}
 
-  input,
-  textarea {
-    width: 100%;
-    /* ✅ stretch across form width */
-    border: none;
-    border-radius: 6px;
-    background: #32323c;
-    color: white;
-    font-family: Outfit;
-    font-size: 18px;
-    padding: 18px 20px;
-    box-sizing: border-box;
-  }
+/* ✅ Responsive styles */
+@media (max-width: 768px) {
+  .content-right-block {
+    .content-right {
+      align-items: start; // ✅ center form on mobile
+      width: 200%;
+      gap: 20px;
 
-  input::placeholder,
-  textarea::placeholder {
-    color: white;
-  }
+      label {
+        font-size: 18px; // smaller font
+        text-align: left;
+        // width: 100%;
+        max-width: 400px;
+        border-radius: 10px;
+        padding: 5px;
+      }
 
-  textarea {
-    resize: none;
-    height: 160px;
-  }
+      input,
+      textarea {
+        width: 90%; // ✅ fit smaller screens
+        max-width: 400px; // ✅ prevent extra wide
+        font-size: 16px;
+      }
 
-  .contact-submit {
-    border: none;
-    color: white;
-    border-radius: 10px;
-    background: linear-gradient(264deg, #df8908 -5.09%, #8415ff 106.28%);
-    font-size: 20px;
-    font-weight: 600;
-    padding: 15px;
-    width: 100%;
-    max-width: 250px;
-    cursor: pointer;
-    transition: transform 0.3s;
+      textarea {
+        height: 150px; // ✅ better height for mobile
+        padding: 15px;
+      }
 
-    &:hover {
-      transform: scale(1.1);
+      .contact-submit {
+        font-size: 18px;
+        padding: 12px 18px;
+        margin: 20px 0;
+        width: 90%;
+        max-width: 250px; // ✅ button doesn’t stretch too far
+        text-align: center;
+      }
     }
   }
 }
 
-/* ✅ Responsive styles */
-@media (max-width: 1024px) {
-  .content-right-block {
-    padding: 30px;
-  }
-
-  .content-right {
-    max-width: 600px;
-  }
-}
-
-@media (max-width: 768px) {
-  .content-right-block {
-    min-height: auto;
-    padding: 40px 20px;
-  }
-
-  .content-right {
-    max-width: 100%;
-  }
-
-  label {
-    font-size: 18px;
-  }
-
-  input,
-  textarea {
-    font-size: 16px;
-  }
-
-  .contact-submit {
-    font-size: 18px;
-    width: 80%;
-    max-width: 220px;
-  }
-}
-
-@media (max-width: 480px) {
-  label {
-    font-size: 16px;
-  }
-
-  input,
-  textarea {
-    font-size: 15px;
-    padding: 15px;
-  }
-
-  .contact-submit {
-    font-size: 16px;
-    padding: 12px;
-    width: 90%;
-  }
+[data-theme="dark"].contact label {
+  color: white;
+  background-color: gray;
 }
