@@ -36,6 +36,7 @@
       border-radius: 6px;
       cursor: pointer;
       text-decoration: none;
+      margin: 0 160px;
       font-weight: 600;
       font-size: 16px;
       transition: background 0.3s ease;
@@ -363,7 +364,7 @@
 
     .content-title {
       position: relative;
-      margin: 0 auto;
+
 
 
       .underline {
@@ -488,6 +489,7 @@
 
     .content-title h1 {
       font-size: 36px;
+      padding-right: 30px;
     }
 
     .contact-session {
@@ -501,6 +503,7 @@
 
         h1 {
           font-size: 42px;
+          width: 250px;
         }
 
         p {
@@ -521,6 +524,17 @@
       .icon {
         margin-right: 80px;
       }
+    }
+  }
+}
+
+@media(max-width:768px) {
+  .content-left {
+    h1 {
+      font-size: 42px;
+      width: 250px;
+
+
     }
   }
 }
