@@ -82,3 +82,9 @@
     font-size: 36px;
   }
 }
+
+@media(max-width: 768px) {
+  .header-block {
+    padding: 0 10px;
+  }
+}

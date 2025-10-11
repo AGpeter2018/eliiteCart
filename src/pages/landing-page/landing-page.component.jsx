@@ -5,7 +5,7 @@ import HomeImage from "../../assets/img-home.jpg";
 import productImage from "../../assets/product-main-2.jpg";
 import Header from "../../components/header-component/header.component";
 import SocialIcon from "../../components/social-icon-component/social-icon.component";
-import ContactRight from "../../components/contact-right/contact-right.component";
+// import ContactRight from "../../components/contact-right/contact-right.component";
 import Footer from "../../components/footer-component/footer.component";
 
 import IconGem from "../../assets/geml.svg";
@@ -125,7 +125,7 @@ const LandingPage = () => {
                 </div>
               </div>
             </div>
-            <ContactRight />
+            {/* <ContactRight /> */}
           </div>
         </div>
       </section>

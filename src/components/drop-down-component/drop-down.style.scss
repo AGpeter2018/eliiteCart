@@ -12,6 +12,7 @@
 #dark .cart-drop-down .cart-text {
   color: #fff;
 }
+
 .cart-drop-down {
   position: absolute;
   width: 240px;
@@ -44,7 +45,7 @@
 
 @media (max-width: 768px) {
   .cart-drop-down {
-    right: 200px;
+    right: 150px;
     top: 60px;
   }
 }
