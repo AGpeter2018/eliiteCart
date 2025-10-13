@@ -87,11 +87,10 @@
       position: fixed;
       display: block;
       top: -18px;
-      // gap: 30;
       padding-top: 30px;
       align-items: center;
       background: #1f0016;
-      width: 200px;
+      width: 90px;
       height: 100%;
       z-index: 2;
       transition: right 0.5s;
@@ -99,14 +98,13 @@
 
       li {
         padding-left: 15px;
-        padding-top: 60px;
-        font-size: 25px;
+
       }
 
       .nav-close {
         display: block;
         position: relative;
-        left: 250px;
+        left: 140px;
         width: 30;
         cursor: pointer;
       }
@@ -116,11 +114,13 @@
         color: white;
         display: flex;
         flex-direction: column;
-        padding-top: 40px;
+        padding-top: 35px;
         padding-left: 45px;
         align-items: center;
-        font-size: 25px;
+        font-size: 15px;
       }
+
+
     }
   }
 }
