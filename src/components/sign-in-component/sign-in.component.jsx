@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import LogoCrown from "../../assets/crown-solid-full.svg";
@@ -8,35 +8,44 @@ import CustomInput from "../custom-input-component/custom-input.component";
 import { auth, signInWithGoogle } from "../../firebase/firebase-utils";
 
 import "./sign-in.style.scss";
+import { type } from "@testing-library/user-event/dist/type";
 
-class SignIn extends React.Component {
-  constructor() {
-    super();
-    this.state = {
+const SignIn = () => {
+  const [message, setMessage] = useState({
+    type: '',
+    text: ''
+  })
+  const [loading, setLoading] = useState(false)
+  const [signData, setSignData] = useState( {
       email: "",
       password: "",
-    };
-  }
+    })
 
-  handleSubmit = async (event) => {
+    const {email, password} = signData
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const { email, password } = this.state;
+    const { email, password } = signData;
     try {
+      setLoading(true)
       await auth.signInWithEmailAndPassword(email, password);
-      this.setState({ email: "", password: "" });
+      setLoading(false)
+      setSignData({ email: "", password: "" });
+      setMessage({type: 'success', text: 'Signed in successfully!'})
+      setTimeout(() => setMessage({type: '', text: ''}),2500)
     } catch (error) {
-      console.log(error.message);
+      setMessage({type: 'error', text: 'Error in signing in'})
+      setTimeout(() => setMessage({type: '', text: ''}),2500)
+    } finally{
+      setLoading(false)
     }
   };
 
-  handleChange = (event) => {
+  const handleChange = (event) => {
     event.preventDefault();
     const { value, name } = event.target;
-    this.setState({ [name]: value });
+    setSignData((prev) => ({...prev, [name]: value }));
   };
 
-  render() {
-    const { email, password } = this.state;
     return (
       <div className="sign-container">
         <img src={LogoCrown} alt="" className="logo" />
@@ -46,14 +55,14 @@ class SignIn extends React.Component {
         <h2>I already have account</h2>
         <h3>Sign in with email and password</h3>
         <div className="form-container">
-          <form action="" className="sign-in-form" onSubmit={this.handleSubmit}>
+          <form action="" className="sign-in-form" onSubmit={handleSubmit}>
             <div className="inputA">
               <CustomInput
                 type="text"
                 name="email"
                 value={email}
                 label="Email"
-                handleChange={this.handleChange}
+                handleChange={handleChange}
                 required
               />
             </div>
@@ -63,14 +72,14 @@ class SignIn extends React.Component {
                 name="password"
                 value={password}
                 label="Password"
-                handleChange={this.handleChange}
+                handleChange={handleChange}
                 required
               />
             </div>
             <CustomButton type="submit" signIn>
               Sign In
             </CustomButton>
-            <CustomButton type="submit" isGoogle onClick={signInWithGoogle}>
+            <CustomButton type="submit" isGoogle onClick={signInWithGoogle} disabled={loading}>
               Sign In with Google
             </CustomButton>
           </form>
@@ -78,9 +87,19 @@ class SignIn extends React.Component {
             Not having an account yet ? <Link to="/signUp">sign up</Link>
           </div>
         </div>
+         {message.text && (
+        <div className={`alert ${message.type}`}>{message.text}
+        </div>
+      )}
+
+       {loading && (
+         <div className="spinner">
+          <div className="spin"></div>
+          <div className="text-spin">EliteCart...</div>
+        </div>
+      )}
       </div>
     );
   }
-}
 
 export default SignIn;

@@ -23,6 +23,13 @@ const SignUp = () => {
     document.body.id = theme;
   }, [theme]);
 
+  const [message, setMessage] = useState({
+    type: '',
+    text: '',
+  })
+
+  const [loading, setLoading] = useState(false)
+
   const [formData, setFormData] = useState({
     displayName: "",
     email: "",
@@ -37,22 +44,29 @@ const SignUp = () => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("Please confirm your password");
+      setMessage({type:'error', text:'Plesase, confirm your password'})
+      setTimeout(() => setMessage({type: '', text: ''}),2500)
       return;
     }
 
     try {
+      setLoading(true)
       const { user } = await auth.createUserWithEmailAndPassword(
         email,
         password
       );
       await createUserProfile(user, { displayName });
 
-      // ✅ log out after signup so they must log in
-      await auth.signOut();
+      setMessage({type: 'success', text:  'Account created successfully'})
 
-      // ✅ redirect to Sign In page
-      navigate("/signIn");
+      setTimeout(() => setMessage({type: '', text: ''}), 2500)
+
+      setTimeout(async () => {
+        // ✅ log out after signup so they must log in
+        await auth.signOut();
+        // ✅ redirect to Sign In page
+        navigate("/signIn");    
+      },2500)
 
       // reset form
       setFormData({
@@ -62,7 +76,10 @@ const SignUp = () => {
         confirmPassword: "",
       });
     } catch (error) {
-      console.log(error.message);
+      setMessage({type: 'error', text: 'Error in creating user'})
+      setTimeout(() => setMessage({type: '', text: ''}), 2500)
+    } finally{
+      setLoading(false)
     }
   };
 
@@ -110,16 +127,28 @@ const SignUp = () => {
           required
         />
         <div className="body">
-          <CustomButton signUp type="submit">
-            Sign Up
+          <CustomButton signUp type="submit" disabled={loading}>
+            {loading ? 'Creating...' : 'Sign Up'}
+            
           </CustomButton>
           <div className="link" id={theme}>
             Having an account ? <Link to="/signIn">sign in</Link>
           </div>
         </div>
       </form>
+      {message.text && (
+        <div className={`alert ${message.type}`}>{message.text}</div>
+      )}
+
+      {loading && (
+         <div className="spinner">
+          <div className="spin"></div>
+          <div className="text-spin">EliteCart...</div>
+        </div>
+      )}
     </div>
   );
 };
+
 
 export default SignUp;
