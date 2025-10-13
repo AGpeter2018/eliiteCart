@@ -17,9 +17,9 @@
     border: none;
     outline: none;
     background: gray;
-    padding: 15px 30px;
-    border-radius: 10px;
-    font-weight: 400;
+    padding: 3px 30px;
+    border-radius: 5px;
+    font-weight: 300;
     color: white;
     font-size: 24px;
     cursor: pointer;
@@ -40,11 +40,14 @@
   }
 
   .moving {
-    margin-left: 160px;
+    margin-left: 18px;
+    padding: 5px 65px;
+    font-size: 18px;
   }
 
   .sign {
     margin-left: 100px;
+
   }
 }
 
@@ -63,18 +66,20 @@
 
 
     .sign {
-      margin-left: 60px;
+      margin-left: 70px;
       font-size: 20px;
     }
 
     .style {
-      margin-left: 5px;
+      margin-left: 15px;
       font-size: 20px;
     }
 
     .moving {
       margin-left: -5px;
-      padding: 5px 10px;
+      // padding: 5px 10px;
+      padding: 5px 65px;
+      font-size: 18px;
     }
   }
 
