@@ -1,14 +1,5 @@
 .submitBtn {
   margin-top: 20px;
-  padding: 10px 0;
-  background: gray;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: gainsboro;
-    color: black;
-  }
 
   &.inverted {
     background-color: white;
@@ -24,9 +15,10 @@
 
   button {
     border: none;
-    background: none;
     outline: none;
-    padding: 5px 10px;
+    background: gray;
+    padding: 15px 30px;
+    border-radius: 10px;
     font-weight: 400;
     color: white;
     font-size: 24px;
@@ -34,7 +26,8 @@
     transition: all 0.3s linear;
 
     &:hover {
-      color: gray;
+      background: gainsboro;
+      color: black;
     }
   }
 
@@ -43,7 +36,7 @@
   }
 
   .style {
-    margin-left: 62px;
+    margin-left: 40px;
   }
 
   .moving {
@@ -51,6 +44,38 @@
   }
 
   .sign {
-    margin-left: 120px;
+    margin-left: 100px;
   }
+}
+
+@media (max-width:768px) {
+  .submitBtn {
+    padding: 0px 0;
+    margin-right: 5px;
+
+    .inverted {
+      font-size: 15px;
+    }
+
+    button {
+      padding: 5px 10px;
+    }
+
+
+    .sign {
+      margin-left: 60px;
+      font-size: 20px;
+    }
+
+    .style {
+      margin-left: 5px;
+      font-size: 20px;
+    }
+
+    .moving {
+      margin-left: -5px;
+      padding: 5px 10px;
+    }
+  }
+
 }
