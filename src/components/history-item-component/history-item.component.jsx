@@ -32,7 +32,7 @@ const HistoryItem = ({ item }) => {
           {quantity} x ${price}
         </span>
         <span className="date">{formattedDate}</span>
-        <span className="time">{formattedTime}</span>
+        {/* <span className="time">{formattedTime}</span> */}
         {/* <div
           className="history-remove-btn"
           onClick={() => dispatch(deleteHistoryItem(item))}
