@@ -1,6 +1,7 @@
 #dark .cart-icon .shopping-icon {
   filter: brightness(0) invert(1);
 }
+
 .cart-icon {
   width: 45px;
   height: 45px;
@@ -18,7 +19,7 @@
   .item-count {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 37%;
     transform: translate(-50%, -50%);
     padding: auto;
     font-size: 10px;
