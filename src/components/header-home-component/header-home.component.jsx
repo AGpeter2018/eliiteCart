@@ -28,7 +28,7 @@ const HeaderHome = () => {
   const dispatch = useDispatch();
   const menuRef = useRef();
   const openMenu = () => {
-    menuRef.current.style.right = "0px";
+    menuRef.current.style.right = "0px";  
   };
   const closeMenu = () => {
     menuRef.current.style.right = "-500px";
@@ -51,13 +51,16 @@ const HeaderHome = () => {
             onClick={closeMenu}
             id={theme}
           />
-          <Link to="/shopPage" className="option" id={theme}>
+          <Link to="/shopPage" className="option" id={theme} onClick={() => 
+            closeMenu()
+          }>
             Shop
           </Link>
-          <Link to="/shop" className="option" id={theme}>
+          <Link to="/shop" className="option" id={theme} onClick={() => 
+             closeMenu()}>
             Contact
           </Link>
-          <Link to="/history" className="option" id={theme}>
+          <Link to="/history" className="option" id={theme} onClick={() => closeMenu()}>
             History
           </Link>
           <div className="option option-image" id={theme}>
@@ -65,12 +68,14 @@ const HeaderHome = () => {
               <img
                 src={currentUser.photoURL}
                 alt=""
+                onClick={() =>  closeMenu()}
                 style={{ width: "30px", height: "25px", borderRadius: "50%" }}
               />
             ) : (
               <FaRegUserCircle
                 className="option option-image"
                 id={theme}
+                onClick={() =>  closeMenu()}
                 style={{ width: "20px", height: "25px" }}
               />
             )}
@@ -79,16 +84,18 @@ const HeaderHome = () => {
             <div
               className=" option option-out"
               id={theme}
-              onClick={() => dispatch(setUserAuth())}
+              onClick={() => {dispatch(setUserAuth()); closeMenu()}}
             >
               SignOut
             </div>
           ) : (
-            <Link to="/signIn" className="option option-out" id={theme}>
+            <Link to="/signIn" className="option option-out" id={theme} onClick={() =>  closeMenu()}>
               SignIn
             </Link>
           )}
+          <div onClick={() =>  closeMenu()}>
           <ShoppingIcon />
+          </div>
         </div>
       </div>
       {currentUser ? hidden ? null : <DropDown /> : <Navigate to="/signIn" />}

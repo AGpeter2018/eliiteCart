@@ -6,12 +6,14 @@ import { selectThemeColor } from "../../redux/theme/theme-selector";
 import { themeChangeAction } from "../../redux/theme/theme-action";
 import { createStructuredSelector } from "reselect";
 import { useDispatch, useSelector } from "react-redux";
+import { dropDownAction } from "../../redux/cart/cart-action";
 
 import { IoMenuSharp } from "react-icons/io5";
 import MenuClose from "../../assets/menu_close.svg";
 import CrownLogo from "../../assets/crown-solid-full.svg";
 
 import "./header.style.scss";
+import { ImProfile } from "react-icons/im";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -33,25 +35,25 @@ const Header = () => {
         <img src={CrownLogo} alt="" className="logo-img" />
       </div>
       <IoMenuSharp className="nav-open" onClick={openRef} id={theme} />
-      <ul ref={menuRef} className="nav-links">
+      <ul ref={menuRef} className="nav-links" >
         <img src={MenuClose} alt="" className="nav-close" onClick={closeRef} />
         <li id={theme}>
-          <AnchorLink className="anchor-link" offset={50} href="#home">
+          <AnchorLink className="anchor-link" offset={50} href="#home" onClick={() => closeRef()}>
             Home
           </AnchorLink>
         </li>
         <li id={theme}>
-          <AnchorLink className="anchor-link" offset={50} href="#about">
+          <AnchorLink className="anchor-link" offset={50} href="#about" onClick={() => closeRef()}>
             About
           </AnchorLink>
         </li>
         <li id={theme}>
-          <AnchorLink className="anchor-link" offset={50} href="#product">
+          <AnchorLink className="anchor-link" offset={50} href="#product" onClick={() => closeRef()}>
             Product
           </AnchorLink>
         </li>
-        <li id={theme}>
-          <AnchorLink className="anchor-link" offset={50} href="#contact">
+        <li id={theme} onClick={() => closeRef()}>
+          <AnchorLink className="anchor-link" offset={50} href="#contact" onClick={() => closeRef()}>
             Contact
           </AnchorLink>
         </li>
