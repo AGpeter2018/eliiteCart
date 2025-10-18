@@ -9,13 +9,22 @@ import CollectionItems from "../../components/collection-item-component/collecti
 import "./collection.style.scss";
 import { useParams } from "react-router-dom";
 
-const CollectionPage = () => {
+const CollectionPage = ({loading}) => {
   const { collectionId } = useParams();
   const structuredSelector = createStructuredSelector({
     collection: selectCollections(collectionId),
   });
   const { collection } = useSelector(structuredSelector);
   const { title, items } = collection;
+
+   if(loading) {
+    return(
+         <div className="spinner">
+          <div className="spin"></div>
+          <div className="text-spin">EliteCart...</div>
+        </div>
+      )
+    }
   return (
     <div className="collection-page">
       <h1 className="title">{title}</h1>

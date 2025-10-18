@@ -8,12 +8,20 @@ import CollectionPreview from "../collection-preview-component/collection-previe
 
 import "./collections-overview.component.style.scss";
 
-const CollectionOverview = () => {
+const CollectionOverview = ({loading}) => {
   const structuredSelector = createStructuredSelector({
     collections: selectCollectionForPreview,
   });
   const { collections } = useSelector(structuredSelector);
   console.log(collections);
+  if(loading) {
+    return  (
+         <div className="spinner">
+          <div className="spin"></div>
+          <div className="text-spin">EliteCart...</div>
+        </div>
+      )
+    }
   return (
     <div className="collections-overview">
       {collections.map(({ id, ...otherProps }) => {
