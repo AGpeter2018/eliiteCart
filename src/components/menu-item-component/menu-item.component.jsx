@@ -15,7 +15,6 @@ const MenuItem = ({ imageUrl, title, linkUrl, size }) => {
   const { theme } = useSelector(structureSelector);
   const navigate = useNavigate();
   const handleClick = () => {
-    console.log("Navigating to:", linkUrl);
     navigate(linkUrl);
   };
   return (

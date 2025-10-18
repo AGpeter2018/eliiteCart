@@ -8,6 +8,7 @@ import { selectThemeColor } from "./redux/theme/theme-selector";
 import { themeChangeAction } from "./redux/theme/theme-action";
 import { createStructuredSelector } from "reselect";
 
+
 import LandingPage from "./pages/landing-page/landing-page.component";
 import Homepage from "./pages/homepage/homepage.component";
 import Shop from "./components/shop-component/shop.component";
@@ -22,9 +23,9 @@ import "./App.css";
 const App = () => {
   const structuredSelector = createStructuredSelector({
     currentUser: selectCurrentUser,
-    theme: selectThemeColor,
+
   });
-  const { currentUser, theme } = useSelector(structuredSelector);
+  const { currentUser, theme} = useSelector(structuredSelector);
   const dispatch = useDispatch();
   useEffect(() => {
     const unSubscribeFromAuth = dispatch(getUserAuth());

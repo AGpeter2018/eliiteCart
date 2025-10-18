@@ -1,6 +1,9 @@
 import { userActionType } from "./user-action-type";
 
-import { auth, createUserProfile } from "../../firebase/firebase-utils";
+
+import { auth, createUserProfile, firestore } from "../../firebase/firebase-utils";
+import shopAction from "../collection/shop-action";
+import { convertCollectionSnapshotToMap } from "../../firebase/firebase-utils";
 
 export const setCurrentUser = (user) => ({
   type: userActionType.SET_CURRENT_USER,
@@ -13,7 +16,6 @@ export const getUserAuth = () => {
       if (user) {
         const userRef = await createUserProfile(user);
         userRef.onSnapshot((snapshot) => {
-          console.log(snapshot.data());
           dispatch(
             setCurrentUser({
               id: snapshot.id,
@@ -29,6 +31,7 @@ export const getUserAuth = () => {
   };
 };
 
+
 export const setUserAuth = () => {
   return async (dispatch) => {
     try {
@@ -39,3 +42,17 @@ export const setUserAuth = () => {
     }
   };
 };
+
+export const fetchCollections = () => {
+    return async (dispatch) => {
+        try {
+            const collectionRef = firestore.collection('collections')
+            collectionRef.get().then((snapshot) => {
+              const collectionMap = convertCollectionSnapshotToMap(snapshot)
+              dispatch(shopAction(collectionMap))
+            })
+        } catch (error) {
+            console.log(error.message)
+        }
+    } 
+}
