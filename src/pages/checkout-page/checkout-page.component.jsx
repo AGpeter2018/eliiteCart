@@ -1,6 +1,7 @@
 import React from "react";
 
 import { selectCart, selectItemTotal } from "../../redux/cart/cart-selector";
+import { selectThemeColor } from "../../redux/theme/theme-selector";
 import { useSelector } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -14,11 +15,11 @@ const CheckoutPage = () => {
   const structuredSelector = createStructuredSelector({
     cartItems: selectCart,
     total: selectItemTotal,
+    theme: selectThemeColor
   });
-  const { cartItems, total } = useSelector(structuredSelector);
-  console.log(cartItems);
+  const { cartItems, total, theme } = useSelector(structuredSelector);
   return (
-    <div className="checkout-page">
+    <div className="checkout-page" data-theme={theme}>
       <div className="checkout-header">
         <div className="header-block">
           <span>Product</span>

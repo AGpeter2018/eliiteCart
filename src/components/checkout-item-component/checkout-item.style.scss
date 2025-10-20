@@ -19,7 +19,6 @@
   min-height: 100px;
   border-bottom: 1px solid darkgrey;
   padding: 15px 0px;
-  margin-left: 25px;
   font-size: 20px;
   align-items: center;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -61,5 +60,11 @@
     padding-left: 12px;
     padding-right: 10px;
     cursor: pointer;
+  }
+}
+
+@media(max-width:768px) {
+  .checkout-item {
+    width: 100%;
   }
 }

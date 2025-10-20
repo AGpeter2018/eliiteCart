@@ -13,7 +13,6 @@
     background: #181818;
     color: #fff;
     // width: 90%;
-    padding-right: 30px;
   }
 }
 
@@ -53,50 +52,6 @@
 
 .checkout-page {
   width: 55%;
-  min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 50px auto 0;
-
-  .checkout-header {
-    width: 100%;
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid darkgrey;
-
-    .header-block {
-      text-transform: capitalize;
-      width: 23%;
-
-      &:last-child {
-        width: 8%;
-      }
-    }
-  }
-
-  .total {
-    margin-top: 30px;
-    margin-left: auto;
-    font-size: 36px;
-  }
-}
-
-/* Light & dark themes */
-#light .checkout-page {
-  background: #fff;
-  color: #222;
-}
-
-#dark .checkout-page {
-  background: #181818;
-  color: #fff;
-}
-
-/* Desktop layout */
-.checkout-page {
-  width: 55%;
   min-height: 110vh;
   display: flex;
   flex-direction: column;
@@ -114,9 +69,9 @@
       text-transform: capitalize;
       width: 23%;
 
-      &:last-child {
-        width: 8%;
-      }
+      // &:last-child {
+      //   width: 8%;
+      // }
     }
   }
 
@@ -130,16 +85,16 @@
 /* Mobile layout */
 @media screen and (max-width: 768px) {
   .checkout-page {
-    width: 95%;
+    width: 98%;
     margin: 0px auto;
+    padding: 0 5px;
 
     .checkout-header {
       display: grid;
       grid-template-columns: 1fr;
       text-align: left;
       border-bottom: 2px solid #666;
-      row-gap: 10px;
-      padding: 15px;
+      row-gap: 15px;
 
       .header-block {
         width: 100%;
@@ -147,7 +102,6 @@
         font-weight: 600;
         border-bottom: 1px solid #444;
         padding-bottom: 8px;
-        margin-left: 10px;
       }
     }
 
