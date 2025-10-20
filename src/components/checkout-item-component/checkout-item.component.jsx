@@ -11,7 +11,6 @@ import "./checkout-item.style.scss";
 
 const Checkout = ({ cartItem }) => {
   const dispatch = useDispatch();
-  console.log(cartItem);
   const { imageUrl, price, quantity, name } = cartItem;
   return (
     <div className="checkout-item">

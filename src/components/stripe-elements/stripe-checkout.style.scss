@@ -8,7 +8,8 @@
 .checkout-form {
   width: 480px;
   max-width: 90%;
-  margin: 40px auto; /* center horizontally */
+  margin: 40px auto;
+  /* center horizontally */
   padding: 24px;
   border-radius: 12px;
   box-sizing: border-box;
@@ -16,7 +17,7 @@
 
   @media (max-width: 768px) {
     width: 90%;
-    padding: 20px;
+    // padding: 20px;
   }
 
   @media (max-width: 480px) {
@@ -26,11 +27,11 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  .checkout-form {
-    margin-left: 30px;
-  }
-}
+// @media screen and (max-width: 768px) {
+//   .checkout-form {
+//     // margin-left: 30px;
+//   }
+// }
 
 #light.checkout-form {
   border: 1px solid #eee;
@@ -38,6 +39,7 @@
   color: #222;
   box-shadow: 0 4px 24px rgba(50, 50, 93, 0.07);
 }
+
 #dark.checkout-form {
   border: 1px solid #444;
   background: #232323;
