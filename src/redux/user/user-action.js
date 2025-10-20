@@ -43,16 +43,3 @@ export const setUserAuth = () => {
   };
 };
 
-export const fetchCollections = () => {
-    return async (dispatch) => {
-        try {
-            const collectionRef = firestore.collection('collections')
-            collectionRef.get().then((snapshot) => {
-              const collectionMap = convertCollectionSnapshotToMap(snapshot)
-              dispatch(shopAction(collectionMap))
-            })
-        } catch (error) {
-            console.log(error.message)
-        }
-    } 
-}

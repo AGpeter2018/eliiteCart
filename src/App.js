@@ -23,7 +23,7 @@ import "./App.css";
 const App = () => {
   const structuredSelector = createStructuredSelector({
     currentUser: selectCurrentUser,
-
+    theme: selectThemeColor
   });
   const { currentUser, theme} = useSelector(structuredSelector);
   const dispatch = useDispatch();
