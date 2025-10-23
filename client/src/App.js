@@ -18,6 +18,7 @@ import SignUp from "./components/sign-up-component/sign-up.component";
 import CheckoutPage from "./pages/checkout-page/checkout-page.component";
 import HistoryPage from "./components/history-component/history.component";
 
+
 import "./App.css";
 
 const App = () => {

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectThemeColor } from "../../redux/theme/theme-selector";
 import { selectCart } from "../../redux/cart/cart-selector";
 import { createStructuredSelector } from "reselect";
+import axios from "axios";
 
 import {
   addCartItemHistory,
@@ -20,10 +21,11 @@ const StripeCheckoutForm = ({ amount }) => {
   const { items, theme } = useSelector(strucruredSelector);
   const stripe = useStripe();
   const elements = useElements();
+  const dispatch = useDispatch();
+
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
-  // const theme = useSelector(selectThemeColor); // 'light' or 'dark' from Redux
 
   // Theme-based styles
   const isDark = theme === "dark";
@@ -70,38 +72,75 @@ const StripeCheckoutForm = ({ amount }) => {
 
     if (!stripe || !elements) {
       setProcessing(false);
+      setError("Stripe has not loaded yet.");
       return;
     }
 
     const cardElement = elements.getElement(CardElement);
 
-    // This is a demo: in production, create a PaymentIntent on your server and confirm it here
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
+    // createPaymentMethod
+    const { error: pmError, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: cardElement,
     });
 
-    if (error) {
-      setError(error.message);
+    if (pmError) {
+      setError(pmError.message || "Payment method creation failed");
       setProcessing(false);
-    } else {
-      setSuccess("Payment method created! (demo only)");
-      setProcessing(false);
-      alert("Payment successful!");
-      {
-        items.forEach((item) => dispatch(addCartItemHistory(item)));
-      }
+      console.error(JSON.stringify({ source: "stripe.createPaymentMethod", error: pmError }));
+      return;
+    }
 
-      dispatch(clearCartItem());
+    // prepare payload for backend
+    const payload = {
+      amount, // e.g. dollars
+      amountInCents: Math.round(Number(amount) * 100),
+      payment_method: paymentMethod.id,
+      items: items || [],
+      metadata: {
+        timestamp: new Date().toISOString(),
+      },
+    };
+
+    try {
+      // send request to your backend endpoint (uses client proxy to server)
+      const response = await axios.post("/payment", payload, {
+        headers: { "Content-Type": "application/json" },
+        timeout: 30000,
+      });
+
+      // expected server response shape: { success: true, message: "...", data: { ... } }
+      if (response?.data?.success) {
+        setSuccess(response.data.message || "Payment succeeded");
+        alert(response.data.message || "Payment successful!");
+        // save history and clear cart
+        items.forEach((item) => {
+          const itemWithDate = { ...item, date: new Date().toISOString() };
+          dispatch(addCartItemHistory(itemWithDate));
+        });
+        dispatch(clearCartItem());
+      } else {
+        const info = response?.data || { message: "Unknown server response" };
+        setError(info.message || "Payment failed");
+        alert("Payment failed: " + (info.message || "See console for details"));
+        console.error("Payment failed server response:", JSON.stringify(info, null, 2));
+      }
+    } catch (err) {
+      // network / server error
+      const errPayload =
+        err?.response?.data ||
+        { message: err.message || "Network or server error", status: err?.response?.status };
+      setError(errPayload.message || "Payment error");
+      alert("Payment error: " + (errPayload.message || "See console for details"));
+      console.error("Payment request error:", JSON.stringify(errPayload, null, 2));
+    } finally {
+      setProcessing(false);
     }
   };
-
-  const dispatch = useDispatch();
 
   return (
     <form
       onSubmit={handleSubmit}
-      // style={{ formStyle, width: "300px" }}
       className="checkout-form"
       id={theme}
     >
