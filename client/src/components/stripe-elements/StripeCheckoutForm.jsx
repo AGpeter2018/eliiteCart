@@ -104,10 +104,12 @@ const StripeCheckoutForm = ({ amount }) => {
 
     try {
       // send request to your backend endpoint (uses client proxy to server)
-      const response = await axios.post("/payment", payload, {
-        headers: { "Content-Type": "application/json" },
-        timeout: 30000,
-      });
+    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5001';
+
+const response = await axios.post(`${API_URL}/payment`, payload, {
+  headers: { "Content-Type": "application/json" },
+  timeout: 30000,
+});
 
       // expected server response shape: { success: true, message: "...", data: { ... } }
       if (response?.data?.success) {

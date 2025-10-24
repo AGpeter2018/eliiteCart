@@ -30,10 +30,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const corsOptions = {
   origin: [
     'http://localhost:3000',
-    'https://eliite-cart.vercel.app',  // Replace with your Vercel URL
+    'https://eliite-cart.vercel.app',  // ← Make sure this matches your EXACT Vercel URL
     process.env.CLIENT_URL
   ],
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 };
 
 app.use(cors(corsOptions));
