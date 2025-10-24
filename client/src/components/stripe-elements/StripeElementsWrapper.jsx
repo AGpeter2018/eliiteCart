@@ -6,8 +6,9 @@ import StripeCheckoutForm from "./StripeCheckoutForm";
 
 // Replace with your Stripe test publishable key
 const stripePromise = loadStripe(
-  "pk_test_51SCa2ZFTgdqDaJaqTvvqn5zzbDPQN8z9ga6xLcFvCqCFIn2OXIbUQYXNOgRpPrND1GS2IQHZWddjm33nwdhxKPIY00j5DAdlkp"
+  process.env.STRIPE_PUBLISHABLE_KEY
 );
+console.log("Stripe Publishable Key:", process.env.STRIPE_PUBLISHABLE_KEY);
 
 const StripeElementsWrapper = ({ amount }) => (
   <Elements stripe={stripePromise}>
