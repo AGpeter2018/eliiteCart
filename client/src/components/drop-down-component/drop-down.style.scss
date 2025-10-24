@@ -22,8 +22,8 @@
   padding: 10px;
   border: 1px solid black;
   background-color: white;
-  top: 60px;
-  right: 40px;
+  top: 80px;
+  right: 0px;
   z-index: 5;
 
   .cart-items {
@@ -45,8 +45,8 @@
 
 @media (max-width: 768px) {
   .cart-drop-down {
-    right: 150px;
-    top: 60px;
+    // right: 150px;
+    top: 80px;
   }
 
 }

@@ -9,9 +9,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 60px; // <-- added: fixed header height
+  min-width: 0; // prevent overflow on very small screens
 
   .logo {
     display: flex;
+    align-items: center; // <-- ensure vertical centering
     font-size: 12px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
@@ -19,12 +22,26 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-decoration: none;
-    padding-left: 25px;
+    padding-left: 16px; // reduced left padding for small screens
 
     .logo-img {
       height: 40px;
       width: 30px;
-      padding-top: 12px;
+      padding-top: 0; // remove top padding so image centers
+      margin-right: 8px; // space between image and text
+    }
+
+    // Ensure the h1 (logo text) is visible and sized appropriately
+    h1 {
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+      font-size: 20px; // default desktop size
+      display: inline-block;
+      vertical-align: middle;
+      color: inherit;
+      font-weight: 700;
+      letter-spacing: 0.5px;
     }
   }
 
@@ -119,8 +136,50 @@
         align-items: center;
         font-size: 15px;
       }
-
-
     }
+  }
+}
+
+// specific tweaks for very small screens and to make h1 "rhyme" with crown
+@media (max-width: 450px) {
+  .nav-bar-container {
+    padding: 0 12px;
+    height: 56px;
+
+    .logo {
+      padding-left: 8px;
+
+      .logo-img {
+        height: 30px; // smaller crown
+        width: 22px;
+        margin-right: 6px;
+      }
+
+      h1 {
+        display: inline-block; // make sure it appears
+        font-size: 14px; // small to match crown
+        font-weight: 700;
+        margin: 0;
+        background: linear-gradient(270deg, #ff7e5f 10%, #7b93fe 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1;
+        z-index: 5;
+      }
+    }
+
+    .nav-open {
+      right: 12px;
+      font-size: 22px;
+    }
+
+    .nav-links {
+      padding-right: 12px;
+    }
+  }
+
+  /* prevent page content from hiding under fixed header */
+  body {
+    padding-top: 56px;
   }
 }
