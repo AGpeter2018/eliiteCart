@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 
 import { Routes, Route } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 import "./shop.style.scss";
 import { fetchCollections } from "../../redux/collection/shop-action";
+import Spinner from "../spinner/spinner.component";
 
-import CollectionOverviewContainer from "../container-components/collection-overview-container";
-import CollectionPageContainer from "../container-components/collection-page-container";
+const  CollectionOverviewContainer = lazy(() => import('../container-components/collection-overview-container'))
+const CollectionPageContainer = lazy(() => import('../container-components/collection-page-container'))
 
 const Shop = () => {
   const dispatch = useDispatch()
@@ -27,11 +28,13 @@ const Shop = () => {
   }, [dispatch])
   
   return (
-    <div className="shop">        
+    <div className="shop">
+      <Suspense fallback={<Spinner/>}>      
       <Routes>
         <Route index element={<CollectionOverviewContainer />} />
         <Route path=":collectionId" element={ <CollectionPageContainer  />} />
       </Routes>
+      </Suspense>  
     </div>
   );
 };

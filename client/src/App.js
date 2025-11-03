@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -8,18 +8,19 @@ import { selectThemeColor } from "./redux/theme/theme-selector";
 import { themeChangeAction } from "./redux/theme/theme-action";
 import { createStructuredSelector } from "reselect";
 
-
 import LandingPage from "./pages/landing-page/landing-page.component";
-import Homepage from "./pages/homepage/homepage.component";
-import Shop from "./components/shop-component/shop.component";
-import SignInSignUp from "./pages/sign-in-sign-up/sign-in-sign-up.component";
 import HeaderHome from "./components/header-home-component/header-home.component";
-import SignUp from "./components/sign-up-component/sign-up.component";
-import CheckoutPage from "./pages/checkout-page/checkout-page.component";
-import HistoryPage from "./components/history-component/history.component";
-
+import Spinner from "./components/spinner/spinner.component";
+import ErrorBoundary from "./components/error-boundary/error-boundary";
 
 import "./App.css";
+
+const Homepage = lazy(() => import('./pages/homepage/homepage.component'))
+const Shop = lazy(() => import('./components/shop-component/shop.component'))
+const SignInSignUp = lazy(() => import('./pages/sign-in-sign-up/sign-in-sign-up.component'))
+const SignUp = lazy(() => import('./components/sign-up-component/sign-up.component'))
+const CheckoutPage = lazy(() => import('./pages/checkout-page/checkout-page.component'))
+const  HistoryPage = lazy(() => import('./components/history-component/history.component'))
 
 const App = () => {
   const structuredSelector = createStructuredSelector({
@@ -42,6 +43,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} />
       </Routes>
+      <ErrorBoundary>
+      <Suspense fallback={<Spinner/>}>
       <Routes>
         <Route
           path="/shopPage"
@@ -51,7 +54,7 @@ const App = () => {
               {currentUser ? <Homepage /> : <Navigate to="/signIn" />}
             </>
           }
-        />
+          />
         <Route
           path="/shop/*"
           element={
@@ -90,6 +93,8 @@ const App = () => {
           }
         />
       </Routes>
+        </Suspense>
+          </ErrorBoundary>
     </div>
   );
 };
