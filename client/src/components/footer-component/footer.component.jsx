@@ -37,7 +37,7 @@ const Footer = () => {
           </button>
         </form>
       </div>
-      <hr />
+      {/* <hr /> */}
       <div className="footer-bottom">
         <p className="footer-bottom_left" id={theme}>
           &copy; 2026 EliteCart. All rights reserved.

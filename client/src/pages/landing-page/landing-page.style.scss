@@ -43,7 +43,7 @@
     }
 
     .get-started-button:hover {
-      background-color: #7b93fe;
+      background-color: #dbdeec;
     }
 
     img {
@@ -506,7 +506,7 @@
       /* Mobile screens */
       @media (max-width: 768px) {
         .content-left {
-          padding: 40px 20px;
+          // padding: 40px 20px;
           min-height: auto;
         }
 
