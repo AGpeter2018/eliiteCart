@@ -5,6 +5,7 @@ import Stripe from "stripe";
 import bodyParser from "body-parser";
 import path from "path";
 import { fileURLToPath } from "url";
+import compression from "compression";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Middleware
+app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
