@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import path from "path";
 import { fileURLToPath } from "url";
 import compression from "compression";
+import enforce from 'express-sslify'
 
 dotenv.config();
 
@@ -22,10 +23,16 @@ const port = process.env.PORT || 5001;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// serviceWorker
+app.get('./serviceWorker.js', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'build', 'serviceWorker.js' ))
+})
+
 // Middleware
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(enforce.HTTPS({trustProtoHeader: true}))
 
 // CORS configuration
 // Simple CORS - allows your Vercel domain
