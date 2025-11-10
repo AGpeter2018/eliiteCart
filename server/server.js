@@ -23,10 +23,10 @@ const port = process.env.PORT || 5001;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// serviceWorker
-app.get('./serviceWorker.js', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'build', 'serviceWorker.js' ))
-})
+// // serviceWorker
+// app.get('./serviceWorker.js', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '..', 'build', 'serviceWorker.js' ))
+// })
 
 // Middleware
 app.use(compression());
