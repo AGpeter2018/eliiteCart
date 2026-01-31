@@ -9,7 +9,6 @@ import Header from "../../components/header-component/header.component"; // Keep
 import SocialIcon from "../../components/social-icon-component/social-icon.component";
 
 import Footer from "../../components/footer-component/footer.component";
-// import Directory from "../../components/directory-component/directory.component"; // Added from instruction
 
 import IconGem from "../../assets/geml.svg";
 import IconCart from "../../assets/product.svg";
