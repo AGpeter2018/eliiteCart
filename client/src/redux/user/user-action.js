@@ -1,9 +1,7 @@
 import { userActionType } from "./user-action-type";
 
 
-import { auth, createUserProfile, firestore } from "../../firebase/firebase-utils";
-import shopAction from "../collection/shop-action";
-import { convertCollectionSnapshotToMap } from "../../firebase/firebase-utils";
+import { auth, createUserProfile } from "../../firebase/firebase-utils";
 
 export const setCurrentUser = (user) => ({
   type: userActionType.SET_CURRENT_USER,

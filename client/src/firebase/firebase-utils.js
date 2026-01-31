@@ -1,7 +1,7 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import "firebase/compat/auth";
-import { doc } from "firebase/firestore";
+// import { doc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC5Wt0OApzIC8XHk1I0-E4JsG9grDYYsj8",
@@ -65,8 +65,8 @@ export const addCollectionAndDocument = async (collectionKey, objectToAdd) => {
 
 export const convertCollectionSnapshotToMap = (collections) => {
   const convertedCollection = collections.docs.map(doc => {
-    const {title, items} = doc.data()
-    return{
+    const { title, items } = doc.data()
+    return {
       routerName: encodeURI(title.toLowerCase()),
       id: doc.id,
       title,
