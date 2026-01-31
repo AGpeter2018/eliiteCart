@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-
-import LogoCrown from "../../assets/crown-solid-full.svg";
-import CustomInput from "../custom-input-component/custom-input.component";
-import CustomButton from "../custom-button/custom-button.component";
-
-import { auth, createUserProfile } from "../../firebase/firebase-utils";
-
-import { selectThemeColor } from "../../redux/theme/theme-selector";
 import { useSelector } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { selectThemeColor } from "../../redux/theme/theme-selector";
+
+import LogoCrown from "../../assets/crown-solid-full.svg";
+import { auth, createUserProfile } from "../../firebase/firebase-utils";
 
 import "./sign-up.style.scss";
 
@@ -19,17 +15,11 @@ const SignUp = () => {
   });
   const { theme } = useSelector(structureSelector);
 
-  useEffect(() => {
-    document.body.id = theme;
-  }, [theme]);
-
   const [message, setMessage] = useState({
     type: '',
     text: '',
   })
-
   const [loading, setLoading] = useState(false)
-
   const [formData, setFormData] = useState({
     displayName: "",
     email: "",
@@ -44,8 +34,8 @@ const SignUp = () => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      setMessage({type:'error', text:'Plesase, confirm your password'})
-      setTimeout(() => setMessage({type: '', text: ''}),2500)
+      setMessage({ type: 'error', text: 'Please confirm your password' })
+      setTimeout(() => setMessage({ type: '', text: '' }), 2500)
       return;
     }
 
@@ -57,18 +47,14 @@ const SignUp = () => {
       );
       await createUserProfile(user, { displayName });
 
-      setMessage({type: 'success', text:  'Account created successfully'})
-
-      setTimeout(() => setMessage({type: '', text: ''}), 2500)
+      setMessage({ type: 'success', text: 'Account created successfully' })
+      setTimeout(() => setMessage({ type: '', text: '' }), 2500)
 
       setTimeout(async () => {
-        // ✅ log out after signup so they must log in
         await auth.signOut();
-        // ✅ redirect to Sign In page
-        navigate("/signIn");    
-      },2500)
+        navigate("/signIn");
+      }, 2500)
 
-      // reset form
       setFormData({
         displayName: "",
         email: "",
@@ -76,9 +62,9 @@ const SignUp = () => {
         confirmPassword: "",
       });
     } catch (error) {
-      setMessage({type: 'error', text: 'Error in creating user'})
-      setTimeout(() => setMessage({type: '', text: ''}), 2500)
-    } finally{
+      setMessage({ type: 'error', text: 'Error in creating user' })
+      setTimeout(() => setMessage({ type: '', text: '' }), 2500)
+    } finally {
       setLoading(false)
     }
   };
@@ -89,66 +75,90 @@ const SignUp = () => {
   };
 
   return (
-    <div className="signUp-container" id={theme}>
-      <img src={LogoCrown} alt="logo" className="logo" />
-      <h2 className="title">I do not have an account</h2>
-      <h3>Sign up with your email and password</h3>
-      <form className="sign-up-form" onSubmit={handleSubmit}>
-        <CustomInput
-          type="text"
-          name="displayName"
-          value={displayName}
-          label="Display Name"
-          handleChange={handleChange}
-          required
-        />
-        <CustomInput
-          type="email"
-          name="email"
-          value={email}
-          label="Email"
-          handleChange={handleChange}
-          required
-        />
-        <CustomInput
-          type="password"
-          name="password"
-          value={password}
-          label="Password"
-          handleChange={handleChange}
-          required
-        />
-        <CustomInput
-          type="password"
-          name="confirmPassword"
-          value={confirmPassword}
-          label="Confirm Password"
-          handleChange={handleChange}
-          required
-        />
-        <div className="body">
-          <CustomButton signUp type="submit" disabled={loading}>
-            {loading ? 'Creating...' : 'Sign Up'}
-            
-          </CustomButton>
-          <div className="link" id={theme}>
-            Having an account ? <Link to="/signIn">sign in</Link>
+    <div className="sign-page" id={theme}>
+      <div className="sign-container">
+        <img src={LogoCrown} alt="EliteCart Logo" className="logo" />
+
+        <div className="welcome-badge">Join EliteCart</div>
+
+        <h2>Create Account</h2>
+        <p className="subtitle">Sign up with your email and password</p>
+
+        <form className="sign-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="displayName">Display Name</label>
+            <input
+              type="text"
+              id="displayName"
+              name="displayName"
+              value={displayName}
+              onChange={handleChange}
+              placeholder="Enter your name"
+              required
+            />
           </div>
-        </div>
-      </form>
+
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              placeholder="Create a password"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              value={confirmPassword}
+              onChange={handleChange}
+              placeholder="Confirm your password"
+              required
+            />
+          </div>
+
+          <button type="submit" className="btn-primary" disabled={loading}>
+            {loading ? 'Creating Account...' : 'Sign Up'}
+          </button>
+        </form>
+
+        <p className="link-text">
+          Already have an account? <Link to="/signIn">Sign in</Link>
+        </p>
+      </div>
+
       {message.text && (
-        <div className={`alert ${message.type}`}>{message.text}</div>
+        <div className={`alert alert-${message.type}`}>{message.text}</div>
       )}
 
       {loading && (
-         <div className="spinner">
-          <div className="spin"></div>
-          <div className="text-spin">EliteCart...</div>
+        <div className="spinner-overlay">
+          <div className="spin-circle"></div>
+          <div className="spinner-text">EliteCart...</div>
         </div>
       )}
     </div>
   );
 };
-
 
 export default SignUp;

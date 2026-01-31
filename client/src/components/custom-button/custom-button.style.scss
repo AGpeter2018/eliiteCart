@@ -1,5 +1,5 @@
 .submitBtn {
-  margin-top: 20px;
+  margin-top: 8px;
 
   &.inverted {
     background-color: white;
@@ -17,11 +17,11 @@
     border: none;
     outline: none;
     background: gray;
-    padding: 3px 30px;
+    padding: 10px 24px;
     border-radius: 5px;
-    font-weight: 300;
+    font-weight: 400;
     color: white;
-    font-size: 24px;
+    font-size: 15px;
     cursor: pointer;
     transition: all 0.3s linear;
 
@@ -32,22 +32,21 @@
   }
 
   .submit {
-    margin-left: 120px;
+    margin-left: 0;
   }
 
   .style {
-    margin-left: 40px;
+    margin-left: 0;
   }
 
   .moving {
-    margin-left: 18px;
-    padding: 5px 65px;
-    font-size: 18px;
+    margin-left: 0;
+    padding: 12px 65px;
+    font-size: 16px;
   }
 
   .sign {
-    margin-left: 100px;
-
+    margin-left: 0;
   }
 }
 
@@ -55,31 +54,32 @@
   .submitBtn {
     padding: 0px 0;
     margin-right: 5px;
+    margin-top: 6px;
 
     .inverted {
-      font-size: 15px;
+      font-size: 14px;
     }
 
     button {
-      padding: 5px 10px;
+      padding: 8px 16px;
+      font-size: 15px;
     }
 
 
     .sign {
-      margin-left: 70px;
-      font-size: 20px;
+      margin-left: 0;
+      font-size: 16px;
     }
 
     .style {
-      margin-left: 15px;
-      font-size: 20px;
+      margin-left: 0;
+      font-size: 16px;
     }
 
     .moving {
-      margin-left: -5px;
-      // padding: 5px 10px;
-      padding: 5px 65px;
-      font-size: 18px;
+      margin-left: 0;
+      padding: 12px 65px;
+      font-size: 16px;
     }
   }
 

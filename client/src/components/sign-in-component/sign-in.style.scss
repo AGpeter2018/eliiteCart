@@ -1,235 +1,242 @@
-#dark .sign-container .logo {
-  filter: brightness(0) invert(1);
-}
+$primary-gradient: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+$text-gradient: linear-gradient(90deg, #ff7e5f, #7b93fe);
 
-#light .sign-container {
-  background: #f8f9fa;
-  color: #222;
-}
-
-#dark .sign-container {
-  background: #232323;
-  color: #fff;
-}
-
-#dark .sign-container .greeting h1 {
-  background: #444;
-  color: #ffe082;
-}
-
-#dark .sign-container .link {
-  color: #ffe082;
-}
-
-#dark .sign-container .sign-in-form input {
-  background: #232323;
-  color: #fff;
-  border-bottom: 1px solid #888;
+.sign-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .sign-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 35px 30px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+
+  .logo {
+    height: 50px;
+    width: 42px;
+    margin: 0 auto 15px;
+    display: block;
+  }
+
+  .welcome-badge {
+    background: $primary-gradient;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 20px;
+    margin: 0 auto 20px;
+    border-radius: 25px;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(255, 126, 95, 0.3);
+    width: fit-content;
+    display: block;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    background: $text-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin: 0 0 8px 0;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin: 0 0 25px 0;
+  }
+
+  .sign-form {
+    width: 100%;
+
+    .form-group {
+      margin-bottom: 18px;
+
+      label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+        margin-bottom: 6px;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px 14px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 15px;
+        outline: none;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+
+        &:focus {
+          border-color: #ff7e5f;
+        }
+
+        &::placeholder {
+          color: #999;
+        }
+      }
+    }
+
+    .btn-primary,
+    .btn-google {
+      width: 100%;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn-primary {
+      background: $primary-gradient;
+      color: white;
+    }
+
+    .btn-google {
+      background: white;
+      color: #333;
+      border: 1px solid #e0e0e0;
+    }
+  }
+
+  .link-text {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 20px;
+
+    a {
+      color: #ff7e5f;
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 14px 22px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 1000;
+
+  &.alert-success {
+    background: #4caf50;
+  }
+
+  &.alert-error {
+    background: #f44336;
+  }
+}
+
+.spinner-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(5px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 10px auto;
-  max-width: 380px;
-  padding: 5px 0;
-  background: #f8f9fa;
-  border-radius: 8px;
+  z-index: 10000;
 
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1);
-
-  transition: box-shadow 83ms;
-
-  h2 {
-    font-size: 20px;
-    font-weight: 600;
-    font-family: sans-serif;
-  }
-
-  h3 {
-    font-size: 15px;
-    font-family: sans-serif;
-    font-weight: 600;
-    margin-top: -20px;
-  }
-
-  .logo {
-    height: 50px;
-    width: 40px;
-    padding-bottom: -5rem;
-  }
-
-  .greeting {
-    margin-bottom: -2rem;
-
-    h1 {
-      background: gray;
-      color: white;
-      font-family: sans-serif;
-      font-size: 15px;
-      padding: 8px;
-      margin-top: -5px;
-      border-radius: 10px;
-      pointer-events: none;
-    }
-  }
-
-  .sign-in-form {
-    display: inline-block;
-
-    input {
-      width: 300px;
-      padding: 20px;
-      border: none;
-      outline: none;
-      border-bottom: 1px solid gray;
-    }
-  }
-
-  .link {
-    margin-top: 5px;
-    margin-bottom: 15px;
-    font-size: 15px;
-    font-weight: 400;
-    text-decoration: none;
-    text-align: center;
-    color: black;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  .alert {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 15px 25px;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 16px;
-    z-index: 1000;
-    animation: fadeInOut 3s ease-in-out;
-  }
-
-  .alert.success {
-    background-color: #4caf50; // green
-  }
-
-  .alert.error {
-    background-color: #f44336; // red
-  }
-
-  @keyframes fadeInOut {
-    0% {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-
-    15% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    85% {
-      opacity: 1;
-    }
-
-    100% {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-  }
-}
-
-.spinner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(10, 10, 10, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-
-  .text-spin {
-    position: absolute;
-    top: 54%;
-  }
-
-  .spin {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(145deg, #5a00e0, #cdaaff);
+  .spin-circle {
+    width: 60px;
+    height: 60px;
+    background: $primary-gradient;
     border-radius: 50%;
-    animation: flip 1s ease-in-out infinite;
-    box-shadow: 0 0 20px rgba(90, 0, 224, 0.6);
+    box-shadow: 0 0 30px rgba(255, 126, 95, 0.4);
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  .spinner-text {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
 }
 
-@keyframes flip {
+@keyframes pulse {
   0% {
-    transform: rotateY(0);
+    transform: scale(0.95);
+    opacity: 0.8;
   }
 
   50% {
-    transform: rotateY(180deg);
+    transform: scale(1.05);
+    opacity: 1;
   }
 
   100% {
-    transform: rotateY(360deg);
+    transform: scale(0.95);
+    opacity: 0.8;
   }
 }
 
-@media (max-width: 768px) {
-  .text-spin {
-    position: absolute;
-    top: 54%;
-  }
-}
+#dark.sign-page,
+.sign-page#dark {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background-attachment: fixed;
+  background-size: cover;
 
-/* Responsive design for small screens */
-@media screen and (max-width: 768px) {
   .sign-container {
-    max-width: 95%;
-    margin: 1rem auto;
-    padding: 1rem;
-    border-radius: 6px;
-    max-width: 300px;
+    background: #1e1e1e;
+    color: white;
 
-
-    h2 {
-      font-size: 20px;
-      padding-top: 5px;
+    .subtitle {
+      color: #aaa;
     }
 
-    h3 {
-      font-size: 15px;
-      margin-top: -10px;
+    .sign-form .form-group label {
+      color: #ccc;
     }
 
-    .logo {
-      width: 35px;
-      height: 40px;
+    .sign-form .form-group input {
+      background: #333;
+      color: white;
+      border-color: #444;
     }
 
-    .sign-in-form input {
-      width: 90%;
-      font-size: 0.9rem;
-      padding: 15px;
+    .sign-form .btn-google {
+      background: #333;
+      color: white;
+      border-color: #444;
     }
 
-    .greeting h1 {
-      font-size: 16px;
-      padding: 6px;
-    }
-
-    .link {
-      font-size: 0.9rem;
+    .link-text {
+      color: #aaa;
     }
   }
 }

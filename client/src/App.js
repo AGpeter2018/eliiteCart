@@ -20,14 +20,14 @@ const Shop = lazy(() => import('./components/shop-component/shop.component'))
 const SignInSignUp = lazy(() => import('./pages/sign-in-sign-up/sign-in-sign-up.component'))
 const SignUp = lazy(() => import('./components/sign-up-component/sign-up.component'))
 const CheckoutPage = lazy(() => import('./pages/checkout-page/checkout-page.component'))
-const  HistoryPage = lazy(() => import('./components/history-component/history.component'))
+const HistoryPage = lazy(() => import('./components/history-component/history.component'))
 
 const App = () => {
   const structuredSelector = createStructuredSelector({
     currentUser: selectCurrentUser,
     theme: selectThemeColor
   });
-  const { currentUser, theme} = useSelector(structuredSelector);
+  const { currentUser, theme } = useSelector(structuredSelector);
   const dispatch = useDispatch();
   useEffect(() => {
     const unSubscribeFromAuth = dispatch(getUserAuth());
@@ -44,57 +44,57 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
       </Routes>
       <ErrorBoundary>
-      <Suspense fallback={<Spinner/>}>
-      <Routes>
-        <Route
-          path="/shopPage"
-          element={
-            <>
-              <HeaderHome />
-              {currentUser ? <Homepage /> : <Navigate to="/signIn" />}
-            </>
-          }
-          />
-        <Route
-          path="/shop/*"
-          element={
-            <>
-              <HeaderHome />
-              {currentUser ? <Shop /> : <Navigate to="/signIn" />}
-            </>
-          }
-        />
-        <Route
-          path="/signIn"
-          element={
-            <>
-              <HeaderHome />
-              {currentUser ? <Navigate to="/shopPage" /> : <SignInSignUp />}
-            </>
-          }
-        />
-        <Route path="/signUp" element={<SignUp />} />
-        <Route
-          path="/checkout"
-          element={
-            <>
-              <HeaderHome />
-              {<CheckoutPage />}
-            </>
-          }
-        />
-        <Route
-          path="/history"
-          element={
-            <>
-              <HeaderHome />
-              {currentUser ? <HistoryPage /> : <Navigate to="/signIn" />}
-            </>
-          }
-        />
-      </Routes>
+        <Suspense fallback={<Spinner />}>
+          <Routes>
+            <Route
+              path="/shopPage"
+              element={
+                <>
+                  <HeaderHome />
+                  {currentUser ? <Homepage /> : <Navigate to="/signIn" />}
+                </>
+              }
+            />
+            <Route
+              path="/shop/*"
+              element={
+                <>
+                  <HeaderHome />
+                  {currentUser ? <Shop /> : <Navigate to="/signIn" />}
+                </>
+              }
+            />
+            <Route
+              path="/signIn"
+              element={
+                <>
+                  <HeaderHome />
+                  {currentUser ? <Navigate to="/shopPage" /> : <SignInSignUp />}
+                </>
+              }
+            />
+            <Route path="/signUp" element={<SignUp />} />
+            <Route
+              path="/checkout"
+              element={
+                <>
+                  <HeaderHome />
+                  {<CheckoutPage />}
+                </>
+              }
+            />
+            <Route
+              path="/history"
+              element={
+                <>
+                  <HeaderHome />
+                  {currentUser ? <HistoryPage /> : <Navigate to="/signIn" />}
+                </>
+              }
+            />
+          </Routes>
         </Suspense>
-          </ErrorBoundary>
+      </ErrorBoundary>
     </div>
   );
 };
