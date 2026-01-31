@@ -19,7 +19,7 @@ import call from "../../assets/call_icon.svg";
 import location from "../../assets/location_icon.svg";
 
 import { selectThemeColor } from "../../redux/theme/theme-selector";
-import { useSelector } from "react-redux"; 
+import { useSelector } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 

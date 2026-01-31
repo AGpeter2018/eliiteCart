@@ -51,7 +51,7 @@ const App = () => {
               element={
                 <>
                   <HeaderHome />
-                  {currentUser ? <Homepage /> : <Navigate to="/signIn" />}
+                  {currentUser ? <Homepage /> : <Navigate to="/signin" />}
                 </>
               }
             />
@@ -60,12 +60,12 @@ const App = () => {
               element={
                 <>
                   <HeaderHome />
-                  {currentUser ? <Shop /> : <Navigate to="/signIn" />}
+                  {currentUser ? <Shop /> : <Navigate to="/signin" />}
                 </>
               }
             />
             <Route
-              path="/signIn"
+              path="/signin"
               element={
                 <>
                   <HeaderHome />
@@ -73,7 +73,7 @@ const App = () => {
                 </>
               }
             />
-            <Route path="/signUp" element={<SignUp />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route
               path="/checkout"
               element={
@@ -88,7 +88,7 @@ const App = () => {
               element={
                 <>
                   <HeaderHome />
-                  {currentUser ? <HistoryPage /> : <Navigate to="/signIn" />}
+                  {currentUser ? <HistoryPage /> : <Navigate to="/signin" />}
                 </>
               }
             />

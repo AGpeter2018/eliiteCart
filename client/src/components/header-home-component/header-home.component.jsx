@@ -43,7 +43,7 @@ const HeaderHome = () => {
         <IoMenuSharp className="openMenu" onClick={openMenu} id={theme} />
       </div> */}
       <div className="option-container">
-        <div  className="options">
+        <div className="options">
           {/* <img
             src={CloseMenu}
             alt=""
@@ -65,14 +65,14 @@ const HeaderHome = () => {
               <img
                 src={currentUser.photoURL}
                 alt=""
-                
+
                 style={{ width: "30px", height: "25px", borderRadius: "50%" }}
               />
             ) : (
               <FaRegUserCircle
                 className="option option-image"
                 id={theme}
-                
+
                 style={{ width: "20px", height: "25px" }}
               />
             )}
@@ -81,21 +81,21 @@ const HeaderHome = () => {
             <div
               className=" option option-out"
               id={theme}
-              onClick={() => {dispatch(setUserAuth())}}
+              onClick={() => { dispatch(setUserAuth()) }}
             >
               SignOut
             </div>
           ) : (
-            <Link to="/signIn" className="option option-out" id={theme} >
+            <Link to="/signin" className="option option-out" id={theme} >
               SignIn
             </Link>
           )}
           <div >
-          <ShoppingIcon />
+            <ShoppingIcon />
           </div>
         </div>
       </div>
-      {currentUser ? hidden ? null : <DropDown /> : <Navigate to="/signIn" />}
+      {currentUser ? hidden ? null : <DropDown /> : <Navigate to="/signin" />}
     </div>
   );
 };

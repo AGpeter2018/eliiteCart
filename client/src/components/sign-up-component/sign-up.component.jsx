@@ -52,7 +52,7 @@ const SignUp = () => {
 
       setTimeout(async () => {
         await auth.signOut();
-        navigate("/signIn");
+        navigate("/signin");
       }, 2500)
 
       setFormData({
@@ -143,7 +143,7 @@ const SignUp = () => {
         </form>
 
         <p className="link-text">
-          Already have an account? <Link to="/signIn">Sign in</Link>
+          Already have an account? <Link to="/signin">Sign in</Link>
         </p>
       </div>
 
