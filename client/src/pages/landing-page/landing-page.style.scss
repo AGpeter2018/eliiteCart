@@ -273,6 +273,7 @@ $shadow-hover: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
       gap: 30px;
     }
 
+
     .testimonial-card {
       padding: 40px;
       display: flex;
@@ -315,6 +316,14 @@ $shadow-hover: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
     }
   }
 
+  @media screen and (max-width:768px) {
+    .testimonials {
+      .testimonials-grid {
+        gap: 100px
+      }
+    }
+  }
+
   // FEATURES SECTION
   .features {
     padding: 100px 8vw;
@@ -348,6 +357,17 @@ $shadow-hover: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
         color: #666;
         line-height: 1.6;
         font-size: 15px;
+      }
+    }
+  }
+
+  @media screen and (max-width:768px) {
+    .features {
+      .feature-card {
+        .feature-icon {
+          font-size: 30px;
+        }
+
       }
     }
   }

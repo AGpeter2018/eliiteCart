@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectThemeColor } from "../../redux/theme/theme-selector";
+import { selectCurrentUser } from "../../redux/user/user-selector";
 
 import LogoCrown from "../../assets/crown-solid-full.svg";
 import { auth, signInWithGoogle } from "../../firebase/firebase-utils";
@@ -13,8 +14,9 @@ const SignIn = () => {
   const navigate = useNavigate()
   const structuredSelector = createStructuredSelector({
     theme: selectThemeColor,
+    currentUser: selectCurrentUser
   });
-  const { theme } = useSelector(structuredSelector);
+  const { theme, currentUser } = useSelector(structuredSelector);
 
   const [message, setMessage] = useState({
     type: '',
@@ -37,10 +39,12 @@ const SignIn = () => {
       setSignData({ email: "", password: "" });
       setMessage({ type: 'success', text: 'Signed in successfully!' })
       setTimeout(() => setMessage({ type: '', text: '' }), 2500)
-
-      setTimeout(() => {
-        navigate('/shopPage')
-      }, 2500)
+      console.log('signing in')
+      // setTimeout(() => {
+        //   navigate('/shopPage', { replace: true })
+        // }, 1000)
+        
+      
     } catch (error) {
       setMessage({ type: 'error', text: 'Error in signing in' })
       setTimeout(() => setMessage({ type: '', text: '' }), 2500)
@@ -48,6 +52,12 @@ const SignIn = () => {
       setLoading(false)
     }
   };
+
+    useEffect(() => {
+    if(currentUser) {
+      navigate('/shopPage')
+    }
+  }, [currentUser, navigate])
 
   const handleChange = (event) => {
     const { value, name } = event.target;
