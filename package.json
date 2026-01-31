@@ -4,6 +4,7 @@
   "scripts": {
     "server": "cd server && yarn dev",
     "client": "cd client && yarn start",
+    "build": "cd client && yarn build",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "devDependencies": {

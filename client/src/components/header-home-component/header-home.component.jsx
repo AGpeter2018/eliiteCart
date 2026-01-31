@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Link, Navigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -13,8 +13,6 @@ import ShoppingIcon from "../shopping-icon-component/shopping-icon.component";
 import DropDown from "../drop-down-component/drop-down.component";
 
 import { FaRegUserCircle } from "react-icons/fa";
-import { IoMenuSharp } from "react-icons/io5";
-import CloseMenu from "../../assets/menu_close.svg";
 
 import "./header-home.style.scss";
 

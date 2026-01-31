@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import ReactSwitch from "react-switch";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
@@ -6,14 +6,12 @@ import { selectThemeColor } from "../../redux/theme/theme-selector";
 import { themeChangeAction } from "../../redux/theme/theme-action";
 import { createStructuredSelector } from "reselect";
 import { useDispatch, useSelector } from "react-redux";
-import { dropDownAction } from "../../redux/cart/cart-action";
 
 import { IoMenuSharp } from "react-icons/io5";
 import MenuClose from "../../assets/menu_close.svg";
 import CrownLogo from "../../assets/crown-solid-full.svg";
 
 import "./header.style.scss";
-import { ImProfile } from "react-icons/im";
 
 const Header = () => {
   const dispatch = useDispatch();
