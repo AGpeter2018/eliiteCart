@@ -1,5 +1,5 @@
 import React, { useEffect, lazy, Suspense } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import { getUserAuth } from "./redux/user/user-action";
@@ -23,11 +23,13 @@ const CheckoutPage = lazy(() => import('./pages/checkout-page/checkout-page.comp
 const HistoryPage = lazy(() => import('./components/history-component/history.component'))
 
 const App = () => {
+  const navigate = useNavigate()
   const structuredSelector = createStructuredSelector({
     currentUser: selectCurrentUser,
     theme: selectThemeColor
   });
   const { currentUser, theme } = useSelector(structuredSelector);
+  console.log(currentUser)
   const dispatch = useDispatch();
   useEffect(() => {
     const unSubscribeFromAuth = dispatch(getUserAuth());
@@ -40,12 +42,10 @@ const App = () => {
 
   return (
     <div className="App" id={theme}>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-      </Routes>
       <ErrorBoundary>
         <Suspense fallback={<Spinner />}>
           <Routes>
+            <Route path="/" element={<LandingPage />} />
             <Route
               path="/shopPage"
               element={

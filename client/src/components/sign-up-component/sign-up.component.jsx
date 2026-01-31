@@ -33,6 +33,12 @@ const SignUp = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if(!email || !displayName || password || confirmPassword) {
+      setMessage({ type: 'error', text: 'Please provide your details' })
+      setTimeout(() => setMessage({ type: '', text: '' }), 2500)
+      return;
+    }
+
     if (password !== confirmPassword) {
       setMessage({ type: 'error', text: 'Please confirm your password' })
       setTimeout(() => setMessage({ type: '', text: '' }), 2500)
