@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectThemeColor } from "../../redux/theme/theme-selector";
@@ -10,6 +10,7 @@ import { auth, signInWithGoogle } from "../../firebase/firebase-utils";
 import "./sign-in.style.scss";
 
 const SignIn = () => {
+  const navigate = useNavigate()
   const structuredSelector = createStructuredSelector({
     theme: selectThemeColor,
   });
@@ -36,6 +37,10 @@ const SignIn = () => {
       setSignData({ email: "", password: "" });
       setMessage({ type: 'success', text: 'Signed in successfully!' })
       setTimeout(() => setMessage({ type: '', text: '' }), 2500)
+
+      setTimeout(() => {
+        navigate('/shopPage')
+      }, 2500)
     } catch (error) {
       setMessage({ type: 'error', text: 'Error in signing in' })
       setTimeout(() => setMessage({ type: '', text: '' }), 2500)
